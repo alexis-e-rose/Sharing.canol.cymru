@@ -1,0 +1,171 @@
+🤖 Starting Agentic Browser Tests for localhost:8000
+===============================================
+Starting Agentic Browser Tests...
+
+[0;34m=== Simulating Real User Workflow ===[0m
+
+[0;34m🌐 Navigating to: http://localhost:8000/[0m
+Description: User visits homepage
+HTTP Code: 000
+Response Time: 0.000466ss
+[0;31m❌ Navigation failed (HTTP 000)[0m
+
+[0;34m🌐 Navigating to: http://localhost:8000/register.php[0m
+Description: User goes to registration page
+HTTP Code: 000
+Response Time: 0.000354ss
+[0;31m❌ Navigation failed (HTTP 000)[0m
+
+[0;34m📝 Submitting form to: http://localhost:8000/register.php[0m
+Description: User registers new account
+Data: username=testuser&email=test@example.com&password=testpass123&confirm_password=testpass123
+HTTP Code: 000
+Response Time: 0.000349ss
+[0;31m❌ Form submission failed (HTTP 000)[0m
+
+[0;34m🌐 Navigating to: http://localhost:8000/login_form[0m
+Description: User goes to login page
+HTTP Code: 000
+Response Time: 0.000554ss
+[0;31m❌ Navigation failed (HTTP 000)[0m
+
+[0;34m📝 Submitting form to: http://localhost:8000/login_form[0m
+Description: User logs in
+Data: username=testuser&password=testpass123
+HTTP Code: 000
+Response Time: 0.000332ss
+[0;31m❌ Form submission failed (HTTP 000)[0m
+
+[0;34m🌐 Navigating to: http://localhost:8000/account.php[0m
+Description: User visits account page
+HTTP Code: 000
+Response Time: 0.000216ss
+[0;31m❌ Navigation failed (HTTP 000)[0m
+
+[0;34m🌐 Navigating to: http://localhost:8000/add_listing.php[0m
+Description: User visits add listing page
+HTTP Code: 000
+Response Time: 0.000230ss
+[0;31m❌ Navigation failed (HTTP 000)[0m
+
+[0;34m🌐 Navigating to: http://localhost:8000/search.php[0m
+Description: User searches for items
+HTTP Code: 000
+Response Time: 0.000247ss
+[0;31m❌ Navigation failed (HTTP 000)[0m
+
+[0;34m🌐 Navigating to: http://localhost:8000/request_booking.php[0m
+Description: User visits booking page
+HTTP Code: 000
+Response Time: 0.000282ss
+[0;31m❌ Navigation failed (HTTP 000)[0m
+
+[0;34m🌐 Navigating to: http://localhost:8000/notifications.php[0m
+Description: User visits notifications
+HTTP Code: 000
+Response Time: 0.000211ss
+[0;31m❌ Navigation failed (HTTP 000)[0m
+
+[0;34m🌐 Navigating to: http://localhost:8000/my_bookings.php[0m
+Description: User visits my bookings
+HTTP Code: 000
+Response Time: 0.000288ss
+[0;31m❌ Navigation failed (HTTP 000)[0m
+
+[0;34m=== Simulating Booking Workflow ===[0m
+
+[0;34m🌐 Navigating to: http://localhost:8000/search.php?item_type=1[0m
+Description: Search for loan items
+HTTP Code: 000
+Response Time: 0.000205ss
+[0;31m❌ Navigation failed (HTTP 000)[0m
+
+[0;34m🌐 Navigating to: http://localhost:8000/request_booking.php?thing_id=1[0m
+Description: Try to book item ID 1
+HTTP Code: 000
+Response Time: 0.000221ss
+[0;31m❌ Navigation failed (HTTP 000)[0m
+
+[0;34m📝 Submitting form to: http://localhost:8000/request_booking.php[0m
+Description: Submit booking request
+Data: thing_id=1&start_date=2025-08-05&end_date=2025-08-06&notes=Test booking&submit_booking=1
+HTTP Code: 000
+Response Time: 0.000203ss
+[0;31m❌ Form submission failed (HTTP 000)[0m
+
+[0;34m🌐 Navigating to: http://localhost:8000/my_bookings.php[0m
+Description: Check booking status
+HTTP Code: 000
+Response Time: 0.000260ss
+[0;31m❌ Navigation failed (HTTP 000)[0m
+
+[0;34m=== Simulating Notification Workflow ===[0m
+
+[0;34m🌐 Navigating to: http://localhost:8000/notifications.php[0m
+Description: Visit notifications center
+HTTP Code: 000
+Response Time: 0.000209ss
+[0;31m❌ Navigation failed (HTTP 000)[0m
+
+[0;34m📝 Submitting form to: http://localhost:8000/notifications.php[0m
+Description: Update notification preferences
+Data: email_notifications=1&booking_notifications=1&notification_frequency=immediate
+HTTP Code: 000
+Response Time: 0.000220ss
+[0;31m❌ Form submission failed (HTTP 000)[0m
+
+[0;34m=== Testing Page Interactions ===[0m
+
+[0;34m🔍 Analyzing: http://localhost:8000/[0m
+Description: Homepage analysis
+🔗 Links found: 0
+📝 Forms found: 0
+0
+
+[0;34m🔍 Analyzing: http://localhost:8000/search.php[0m
+Description: Search page analysis
+🔗 Links found: 0
+📝 Forms found: 0
+0
+
+[0;34m🔍 Analyzing: http://localhost:8000/register.php[0m
+Description: Registration page analysis
+🔗 Links found: 0
+📝 Forms found: 0
+0
+
+[0;34m🔍 Analyzing: http://localhost:8000/login_form[0m
+Description: Login page analysis
+🔗 Links found: 0
+📝 Forms found: 0
+0
+
+[1;33m🔍 Analyzing Server Logs for Errors...[0m
+
+[0;34m=== Session Report ===[0m
+📊 Navigation History:
+  ❌ http://localhost:8000/ (HTTP 000, 0.000466ss)
+  ❌ http://localhost:8000/register.php (HTTP 000, 0.000354ss)
+  ❌ http://localhost:8000/register.php (HTTP 000, 0.000349ss)
+  ❌ http://localhost:8000/login_form (HTTP 000, 0.000554ss)
+  ❌ http://localhost:8000/login_form (HTTP 000, 0.000332ss)
+  ❌ http://localhost:8000/account.php (HTTP 000, 0.000216ss)
+  ❌ http://localhost:8000/add_listing.php (HTTP 000, 0.000230ss)
+  ❌ http://localhost:8000/search.php (HTTP 000, 0.000247ss)
+  ❌ http://localhost:8000/request_booking.php (HTTP 000, 0.000282ss)
+  ❌ http://localhost:8000/notifications.php (HTTP 000, 0.000211ss)
+  ❌ http://localhost:8000/my_bookings.php (HTTP 000, 0.000288ss)
+  ❌ http://localhost:8000/search.php?item_type=1 (HTTP 000, 0.000205ss)
+  ❌ http://localhost:8000/request_booking.php?thing_id=1 (HTTP 000, 0.000221ss)
+  ❌ http://localhost:8000/request_booking.php (HTTP 000, 0.000203ss)
+  ❌ http://localhost:8000/my_bookings.php (HTTP 000, 0.000260ss)
+  ❌ http://localhost:8000/notifications.php (HTTP 000, 0.000209ss)
+  ❌ http://localhost:8000/notifications.php (HTTP 000, 0.000220ss)
+
+[0;34m===============================================[0m
+Agentic Browser Test Summary:
+📝 Log saved to: browser_test_20250804_174230.log
+📊 Session data saved to: browser_session.txt
+⚠️  Errors detected: 0
+🔍 Error log saved to: server_errors_20250804_174230.log
+🎉 Agentic browser testing complete!

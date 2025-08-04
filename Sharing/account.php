@@ -16,7 +16,7 @@ include("includes/security_functions.inc");
 include("includes/header.inc"); 
 
 
-if ($_SESSION['member_ID']>0) {
+if (isset($_SESSION['member_ID']) && $_SESSION['member_ID']>0) {
     echo 'You are logged in as member '. $_SESSION['member_ID'].'<BR>';
     $query6 = "SELECT * FROM members WHERE member_ID = ".qq($_SESSION['member_ID']);
     $result6 = $mysqli -> query($query6);
@@ -30,7 +30,7 @@ if ($_SESSION['member_ID']>0) {
 
 if (isset($_POST["makegroup"]) && $_POST["makegroup"]=="Create group" ) {
 
-    $query = 'insert into communities ( member_ID , community_name , password ) values ( '.$_SESSION['member_ID'].' , '.qq($_POST["groupname"]).' , '.qq($_POST["grouppassword"]).' )';    
+    $query = 'insert into communities ( member_ID , community_name , community_type , password ) values ( '.$_SESSION['member_ID'].' , '.qq($_POST["groupname"]).' , 0 , '.qq($_POST["grouppassword"]).' )';    
     $result = $mysqli -> query($query);
     
     // now find what the community ID is
@@ -53,7 +53,7 @@ if (isset($_POST["deletegroup"]) && $_POST["deletegroup"]>0 ) {
 }
 
 
-    $del1 = '<input type="submit" value="'.$record["community_ID"].'" name="deletegroup">';
+    $del1 = isset($record) ? '<input type="submit" value="'.$record["community_ID"].'" name="deletegroup">' : '';
 
 
 
@@ -62,7 +62,7 @@ if (isset($_POST["deletegroup"]) && $_POST["deletegroup"]>0 ) {
 
 // process this if the form has been submitted to save the selection of commiunitioes
 // this section adds the member to the selected communities
-if ($_POST['submitcount']=="Submit" ) {
+if (isset($_POST['submitcount']) && $_POST['submitcount']=="Submit" ) {
     echo 'processing the form';
     for ($i=1; $i<=$_POST['rowcount']; $i++) {
         $varname="comm".$i; $varnameb="commb".$i;
@@ -88,7 +88,7 @@ if ($_POST['submitcount']=="Submit" ) {
 
 // process this if this page has been called by the form on itself
 // this section 
-if ($_POST['submit2'] == "Re-save") {
+if (isset($_POST['submit2']) && $_POST['submit2'] == "Re-save") {
     // SECURE VERSION - Password hashing and prepared statements
     
     // Secure input validation

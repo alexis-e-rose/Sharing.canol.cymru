@@ -1,0 +1,17 @@
+http://localhost:8000/|000|0.000466s
+http://localhost:8000/register.php|000|0.000354s
+http://localhost:8000/register.php|000|0.000349s
+http://localhost:8000/login_form|000|0.000554s
+http://localhost:8000/login_form|000|0.000332s
+http://localhost:8000/account.php|000|0.000216s
+http://localhost:8000/add_listing.php|000|0.000230s
+http://localhost:8000/search.php|000|0.000247s
+http://localhost:8000/request_booking.php|000|0.000282s
+http://localhost:8000/notifications.php|000|0.000211s
+http://localhost:8000/my_bookings.php|000|0.000288s
+http://localhost:8000/search.php?item_type=1|000|0.000205s
+http://localhost:8000/request_booking.php?thing_id=1|000|0.000221s
+http://localhost:8000/request_booking.php|000|0.000203s
+http://localhost:8000/my_bookings.php|000|0.000260s
+http://localhost:8000/notifications.php|000|0.000209s
+http://localhost:8000/notifications.php|000|0.000220s

@@ -101,7 +101,7 @@ if (isset($_POST['submit2']) && $_POST['submit2'] == "Register") {
     }
     //echo 'setting session member ID to '.  $_SESSION['member_ID'];
 
-    echo '<BR>You are logged in as '.$recordtemp["member_fname"];
+    echo '<BR>You are logged in as '.(isset($recordtemp) ? $recordtemp["member_fname"] : 'Unknown');
     echo '<br> You can register as a member of the following communities:<br>';
 
         $pcode5 = substr($_POST["pcode"],0,5)."*"; $pcode6 = substr($_POST["pcode"],0,6)."*"; $pcode7 = substr($_POST["pcode"],0,7)."*"; $pcode8 = substr($_POST["pcode"],0,8);

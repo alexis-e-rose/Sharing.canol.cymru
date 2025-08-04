@@ -3,9 +3,9 @@
         "**/problems_report*.json",
         "**/problems_report*.txt", 
         "**/latest_report.txt",
-        "**/Deepsets Modules/**",
         "**/reports/**",
-        "**/*.md"
+        "**/test_results_*.log",
+        "**/server_errors_*.log"
     ],
     "intelephense.files.associations": [
         "**/.vscode/sharing_functions.php"
@@ -98,19 +98,20 @@
         "**/problems_report*.json",
         "**/problems_report*.txt",
         "**/reports/**",
-        "**/*.md"
+        "**/test_results_*.log",
+        "**/server_errors_*.log"
     ],
     "files.exclude": {
         "problems_report.json": true,
         "problems_report.txt": true,
-        "Deepsets Modules/problem-matcher/reports/**": true,
-        "**/*.md": true
+        "Deepsets Modules/problem-matcher/reports/**": true
     },
     "search.exclude": {
         "Deepsets Modules/problem-matcher/reports/**": true,
         "problems_report*.json": true,
         "problems_report*.txt": true,
-        "**/*.md": true
+        "test_results_*.log": true,
+        "server_errors_*.log": true
     },
     "markdownlint.config": {
         "MD022": false,
@@ -119,8 +120,5 @@
         "MD040": false,
         "MD009": false,
         "MD047": false
-    },
-    "markdownlint.ignore": [
-        "**/*.md"
-    ]
+    }
 } 

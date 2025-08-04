@@ -142,7 +142,7 @@ for ( $i=1; $i<=$_POST["num_comms"]; $i++) {
 						
 						<?php
 						
-						$temp = $record["thing_ID"];
+						$temp = isset($record) && isset($record["thing_ID"]) ? $record["thing_ID"] : 0;
 
 						if ( $temp  >1 ) {
     					    echo '<INPUT  NAME="thing_ID" TYPE="hidden" value="'.$temp.'">';
