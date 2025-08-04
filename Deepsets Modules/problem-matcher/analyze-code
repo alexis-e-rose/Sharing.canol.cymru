@@ -1,0 +1,92 @@
+#!/bin/bash
+
+# Problem Matcher Trigger - Sharing.canol.cymru
+# Quick access trigger for the Problem Matcher Deepsets Module
+# Enhanced with automatic timestamp checking to ensure current reports
+# 
+# Usage: ./analyze-code [options]
+
+# Configuration
+REPORT_FRESHNESS_MINUTES=10  # Force refresh if report older than this
+LATEST_REPORT="Deepsets Modules/problem-matcher/reports/latest_report.txt"
+
+# Color codes
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m'
+
+# Ensure we're in the project root
+if [[ ! -d "Sharing" ]] || [[ ! -d "Deepsets Modules" ]]; then
+    echo -e "${RED}ERROR: Must run from project root directory${NC}"
+    echo "Expected to find 'Sharing' and 'Deepsets Modules' directories"
+    exit 1
+fi
+
+# Check if the module exists
+MODULE_SCRIPT="Deepsets Modules/problem-matcher/analyze-code.sh"
+if [[ ! -f "$MODULE_SCRIPT" ]]; then
+    echo -e "${RED}ERROR: Problem Matcher module not found${NC}"
+    echo "Expected: $MODULE_SCRIPT"
+    exit 1
+fi
+
+# Function to check if report needs refresh
+check_report_freshness() {
+    if [[ ! -f "$LATEST_REPORT" ]]; then
+        echo -e "${YELLOW}📊 No existing report found - generating fresh analysis...${NC}"
+        return 1  # Needs refresh
+    fi
+    
+    # Get file modification time in seconds since epoch
+    local file_time=$(stat -c %Y "$LATEST_REPORT" 2>/dev/null)
+    local current_time=$(date +%s)
+    local age_seconds=$((current_time - file_time))
+    local age_minutes=$((age_seconds / 60))
+    
+    if [[ $age_minutes -gt $REPORT_FRESHNESS_MINUTES ]]; then
+        echo -e "${YELLOW}📊 Report is ${age_minutes} minutes old (>${REPORT_FRESHNESS_MINUTES}min) - refreshing...${NC}"
+        return 1  # Needs refresh
+    else
+        echo -e "${GREEN}📊 Using current report (${age_minutes} minutes old)${NC}"
+        return 0  # Fresh enough
+    fi
+}
+
+# Function to force fresh analysis
+run_fresh_analysis() {
+    echo -e "${BLUE}🔄 Running fresh analysis...${NC}"
+    "$MODULE_SCRIPT"
+    local exit_code=$?
+    
+    if [[ $exit_code -eq 0 ]]; then
+        echo -e "${GREEN}✅ Fresh analysis complete${NC}"
+    else
+        echo -e "${RED}❌ Analysis failed with exit code $exit_code${NC}"
+        exit $exit_code
+    fi
+}
+
+# Main logic - check if we need to force refresh for normal analysis
+case "$1" in
+    --help|--list-reports|--list-archived)
+        # For these commands, don't check freshness, just pass through
+        exec "$MODULE_SCRIPT" "$@"
+        ;;
+    --archive-old|--archive-all)
+        # For archive commands, don't check freshness, just pass through
+        exec "$MODULE_SCRIPT" "$@"
+        ;;
+    *)
+        # For normal analysis (no args or other args), check freshness first
+        if ! check_report_freshness; then
+            run_fresh_analysis
+        fi
+        
+        # If user wanted specific operation after freshness check, do it
+        if [[ $# -gt 0 ]]; then
+            exec "$MODULE_SCRIPT" "$@"
+        fi
+        ;;
+esac 

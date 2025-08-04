@@ -1,0 +1,1825 @@
+{
+    "timestamp": "2025-08-04T12:43:39+00:00",
+    "total_issues": 227,
+    "defined_functions_count": 1,
+    "problems": [
+        {
+            "file": "account.php",
+            "line": 30,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if (isset($_POST[\"makegroup\"]) && $_POST[\"makegroup\"]==\"Create group\" ) {"
+        },
+        {
+            "file": "account.php",
+            "line": 32,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$query = 'insert into communities ( member_ID , community_name , password ) values ( '.$_SESSION['member_ID'].' , '.qq($_POST[\"groupname\"]).' , '.qq($_POST[\"grouppassword\"]).' )';"
+        },
+        {
+            "file": "account.php",
+            "line": 36,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$query = 'select * from communities where community_name = '.qq($_POST[\"groupname\"]).' and member_ID = '.$_SESSION[\"member_ID\"].'';"
+        },
+        {
+            "file": "account.php",
+            "line": 47,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if (isset($_POST[\"deletegroup\"]) && $_POST[\"deletegroup\"]>0 ) {"
+        },
+        {
+            "file": "account.php",
+            "line": 49,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "echo $query = 'delete from communities where community_ID = '.$_POST[\"deletegroup\"];"
+        },
+        {
+            "file": "account.php",
+            "line": 64,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST['submitcount']==\"Submit\" ) {"
+        },
+        {
+            "file": "account.php",
+            "line": 66,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "for ($i=1; $i<=$_POST['rowcount']; $i++) {"
+        },
+        {
+            "file": "account.php",
+            "line": 69,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ( isset($_POST[$varname]) ) {"
+        },
+        {
+            "file": "account.php",
+            "line": 71,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$query = 'select * from member_communities where member_ID = '.$_SESSION['member_ID'].' and community_ID = '.$_POST[$varname];"
+        },
+        {
+            "file": "account.php",
+            "line": 78,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$query = \"insert into member_communities ( member_ID, community_ID ) values ( '\".$_SESSION['member_ID'].\"' , '\".$_POST[$varname].\"' )\";"
+        },
+        {
+            "file": "account.php",
+            "line": 82,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$query = \"delete from member_communities where member_ID = \".$_SESSION['member_ID'].\" and  community_ID = \".$_POST[$varnameb];"
+        },
+        {
+            "file": "account.php",
+            "line": 90,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST['submit2'] == \"Re-save\") {"
+        },
+        {
+            "file": "account.php",
+            "line": 92,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "'member_fname = '.qq($_POST['fname']).' , '."
+        },
+        {
+            "file": "account.php",
+            "line": 92,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "'member_fname = '.qq($_POST['fname']).' , '."
+        },
+        {
+            "file": "account.php",
+            "line": 93,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "'member_lname = '.qq($_POST['lname']).' , '."
+        },
+        {
+            "file": "account.php",
+            "line": 93,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "'member_lname = '.qq($_POST['lname']).' , '."
+        },
+        {
+            "file": "account.php",
+            "line": 94,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "'member_email = '.qq($_POST['email']).' , '."
+        },
+        {
+            "file": "account.php",
+            "line": 94,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "'member_email = '.qq($_POST['email']).' , '."
+        },
+        {
+            "file": "account.php",
+            "line": 95,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "'member_password = '.qq($_POST['pagespass']).' , '."
+        },
+        {
+            "file": "account.php",
+            "line": 95,
+            "severity": "SECURITY",
+            "message": "Plain text password storage",
+            "code": "'member_password = '.qq($_POST['pagespass']).' , '."
+        },
+        {
+            "file": "account.php",
+            "line": 95,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "'member_password = '.qq($_POST['pagespass']).' , '."
+        },
+        {
+            "file": "account.php",
+            "line": 96,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "'member_pcode = '.qq($_POST['pcode']).' '."
+        },
+        {
+            "file": "account.php",
+            "line": 96,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "'member_pcode = '.qq($_POST['pcode']).' '."
+        },
+        {
+            "file": "account.php",
+            "line": 101,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$_SESSION['member_email'] = $_POST['email'];"
+        },
+        {
+            "file": "account.php",
+            "line": 115,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Enter your first name:\",'<INPUT  NAME=\"fname\" TYPE=\"text\" SIZE=20 value ='.qq($member[\"member_fname\"]    ).'>');"
+        },
+        {
+            "file": "account.php",
+            "line": 115,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "echo cell2(\"Enter your first name:\",'<INPUT  NAME=\"fname\" TYPE=\"text\" SIZE=20 value ='.qq($member[\"member_fname\"]    ).'>');"
+        },
+        {
+            "file": "account.php",
+            "line": 116,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Enter your last name: \", '<INPUT  NAME=\"lname\" TYPE=\"text\" SIZE=20 value ='.qq($member[\"member_lname\"]   ).'>');"
+        },
+        {
+            "file": "account.php",
+            "line": 116,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "echo cell2(\"Enter your last name: \", '<INPUT  NAME=\"lname\" TYPE=\"text\" SIZE=20 value ='.qq($member[\"member_lname\"]   ).'>');"
+        },
+        {
+            "file": "account.php",
+            "line": 117,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Enter your postcode:  \",'<INPUT  NAME=\"pcode\"     TYPE=\"text\" SIZE=20 value ='.qq($member[\"member_pcode\"]    ).'>');"
+        },
+        {
+            "file": "account.php",
+            "line": 117,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "echo cell2(\"Enter your postcode:  \",'<INPUT  NAME=\"pcode\"     TYPE=\"text\" SIZE=20 value ='.qq($member[\"member_pcode\"]    ).'>');"
+        },
+        {
+            "file": "account.php",
+            "line": 118,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Enter your email:     \",'<INPUT  NAME=\"email\"     TYPE=\"text\" SIZE=20 value ='.qq($member[\"member_email\"]    ).'>');"
+        },
+        {
+            "file": "account.php",
+            "line": 118,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "echo cell2(\"Enter your email:     \",'<INPUT  NAME=\"email\"     TYPE=\"text\" SIZE=20 value ='.qq($member[\"member_email\"]    ).'>');"
+        },
+        {
+            "file": "account.php",
+            "line": 119,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Create your password: \",'<INPUT  NAME=\"pagespass\" TYPE=\"text\" SIZE=20 value ='.qq($member[\"member_password\"]).'>');"
+        },
+        {
+            "file": "account.php",
+            "line": 119,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "echo cell2(\"Create your password: \",'<INPUT  NAME=\"pagespass\" TYPE=\"text\" SIZE=20 value ='.qq($member[\"member_password\"]).'>');"
+        },
+        {
+            "file": "account.php",
+            "line": 120,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\" \",'<INPUT TYPE=\"SUBMIT\" VALUE=\"Re-save\" name=\"submit2\">');"
+        },
+        {
+            "file": "account.php",
+            "line": 158,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "$temp2 = qq($record2[\"community_name\"]);"
+        },
+        {
+            "file": "account.php",
+            "line": 160,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell3'",
+            "code": "echo cell3(\"\",$temp2,$temp1);"
+        },
+        {
+            "file": "account.php",
+            "line": 162,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2('<input type=\"hidden\" name=\"rowcount\" value=\"'.$row_cnt.'\">','<input name=\"submitcount\" type=\"submit\" value=\"Submit\">');"
+        },
+        {
+            "file": "account.php",
+            "line": 171,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Group name\",'<input type=\"text\" name=\"groupname\">');"
+        },
+        {
+            "file": "account.php",
+            "line": 172,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Group password\",'<input type=\"text\" name=\"grouppassword\">');"
+        },
+        {
+            "file": "account.php",
+            "line": 173,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2('','<input type=\"submit\" name=\"makegroup\" value=\"Create group\" >');"
+        },
+        {
+            "file": "account.php",
+            "line": 187,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell3'",
+            "code": "echo cell3($record[\"community_name\"],$record[\"password\"],$del1);"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 20,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\/\/echo 'thing_ID is '.$_POST[\"thing_ID\"];"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 21,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$this_thing_ID = $_POST[\"thing_ID\"];"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 24,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST[\"checkword\"] == \"check\") {"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 25,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ( $_POST[\"thing_ID\"] == 0) {"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 28,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "qq($_POST[\"thing_title\"]).\", \"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 28,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "qq($_POST[\"thing_title\"]).\", \"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 29,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "qq($_POST[\"thing_price\"]).\", \"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 29,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "qq($_POST[\"thing_price\"]).\", \"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 30,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "qq($_POST[\"thing_type\"]).\", \"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 30,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "qq($_POST[\"thing_type\"]).\", \"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 31,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "qq($_POST[\"thing_ratio\"]).\", \"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 31,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "qq($_POST[\"thing_ratio\"]).\", \"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 32,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "qq($_POST[\"thing_description\"]).\", \"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 32,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "qq($_POST[\"thing_description\"]).\", \"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 33,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "qq($_SESSION[\"member_ID\"]).\", \"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 34,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "qq($_POST[\"thing_image\"]).\" )\";"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 34,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "qq($_POST[\"thing_image\"]).\" )\";"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 43,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$this_thing_ID = $_POST[\"thing_ID\"];"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 45,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\" thing_description = \".qq($_POST[\"thing_description\"]).\" ,\"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 45,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "\" thing_description = \".qq($_POST[\"thing_description\"]).\" ,\"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 46,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\" thing_price       = \".qq($_POST[\"thing_price\"]).\" ,\"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 46,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "\" thing_price       = \".qq($_POST[\"thing_price\"]).\" ,\"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 47,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\" thing_type        = \".qq($_POST[\"thing_type\"]).\" ,\"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 47,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "\" thing_type        = \".qq($_POST[\"thing_type\"]).\" ,\"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 48,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\" thing_ratio       = \".qq($_POST[\"thing_ratio\"]).\" ,\"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 48,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "\" thing_ratio       = \".qq($_POST[\"thing_ratio\"]).\" ,\"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 49,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\" thing_title       = \".qq($_POST[\"thing_title\"]).\" \"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 49,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "\" thing_title       = \".qq($_POST[\"thing_title\"]).\" \"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 58,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\/\/echo '<br>num comms = '.$_POST[\"num_comms\"];"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 65,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "for ( $i=1; $i<=$_POST[\"num_comms\"]; $i++) {"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 67,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$temp2 = $_POST[$temp3];"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 90,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if (isset($_POST[\"edit\"])) {"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 101,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "} elseif ( isset($_POST[\"item_delete\"]) ) {"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 127,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Item title:\",' <INPUT  NAME=\"thing_title\" TYPE=\"text\" SIZE=40 value=\"'.$record[\"thing_title\"].'\">');"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 128,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Full description:\",'<INPUT  NAME=\"thing_description\" TYPE=\"text\" SIZE=40 value=\"'.$record[\"thing_description\"].'\">');"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 139,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"\",\"$temp\");"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 142,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Price:\",'\u00a3<input type=\"text\" name=\"thing_price\" value=\"'.$record[\"thing_price\"].'\">.00');"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 157,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"% to the community fund:\",$q_all);"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 200,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Make visible here\",'<input type=\"checkbox\" name=\"comm'.$i.'\" '.$ch5.' value=\"'.$record[\"community_ID\"].'\">'.$record2[\"community_name\"]);"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 202,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"\",'<input type=\"hidden\" name=\"num_comms\" value=\"'.$i.'\">');"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 232,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell6'",
+            "code": "echo cell6(\"Title\",\"Desc\",\"Price\",\"term\",\"CF\",\"Edit\");"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 243,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell6'",
+            "code": "echo cell6("
+        },
+        {
+            "file": "create_private.php",
+            "line": 56,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\/\/echo 'thing_ID is '.$_POST[\"thing_ID\"];"
+        },
+        {
+            "file": "create_private.php",
+            "line": 57,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$this_thing_ID = $_POST[\"thing_ID\"];"
+        },
+        {
+            "file": "create_private.php",
+            "line": 62,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST[\"checkword\"] == \"check\") {"
+        },
+        {
+            "file": "create_private.php",
+            "line": 63,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ( $_POST[\"thing_ID\"] == 0) {"
+        },
+        {
+            "file": "create_private.php",
+            "line": 66,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "qq($_POST[\"thing_title\"]).\", \"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 66,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "qq($_POST[\"thing_title\"]).\", \"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 67,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "qq($_POST[\"thing_price\"]).\", \"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 67,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "qq($_POST[\"thing_price\"]).\", \"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 68,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "qq($_POST[\"thing_type\"]).\", \"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 68,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "qq($_POST[\"thing_type\"]).\", \"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 69,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "qq($_POST[\"thing_ratio\"]).\", \"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 69,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "qq($_POST[\"thing_ratio\"]).\", \"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 70,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "qq($_POST[\"thing_description\"]).\", \"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 70,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "qq($_POST[\"thing_description\"]).\", \"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 71,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "qq($_SESSION[\"member_ID\"]).\", \"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 72,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "qq($_POST[\"thing_image\"]).\" )\";"
+        },
+        {
+            "file": "create_private.php",
+            "line": 72,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "qq($_POST[\"thing_image\"]).\" )\";"
+        },
+        {
+            "file": "create_private.php",
+            "line": 81,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$this_thing_ID = $_POST[\"thing_ID\"];"
+        },
+        {
+            "file": "create_private.php",
+            "line": 83,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\" thing_description = \".qq($_POST[\"thing_description\"]).\" ,\"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 83,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "\" thing_description = \".qq($_POST[\"thing_description\"]).\" ,\"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 84,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\" thing_price       = \".qq($_POST[\"thing_price\"]).\" ,\"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 84,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "\" thing_price       = \".qq($_POST[\"thing_price\"]).\" ,\"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 85,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\" thing_type        = \".qq($_POST[\"thing_type\"]).\" ,\"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 85,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "\" thing_type        = \".qq($_POST[\"thing_type\"]).\" ,\"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 86,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\" thing_ratio       = \".qq($_POST[\"thing_ratio\"]).\" ,\"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 86,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "\" thing_ratio       = \".qq($_POST[\"thing_ratio\"]).\" ,\"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 87,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\" thing_title       = \".qq($_POST[\"thing_title\"]).\" \"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 87,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "\" thing_title       = \".qq($_POST[\"thing_title\"]).\" \"."
+        },
+        {
+            "file": "cron_notifications.php",
+            "line": 23,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'process_pending_notifications'",
+            "code": "$results = process_pending_notifications(100);"
+        },
+        {
+            "file": "cron_notifications.php",
+            "line": 28,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'get_due_returns'",
+            "code": "$due_returns = get_due_returns(1); \/\/ Items due tomorrow"
+        },
+        {
+            "file": "cron_notifications.php",
+            "line": 43,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'create_notification'",
+            "code": "$notification_id = create_notification("
+        },
+        {
+            "file": "cron_notifications.php",
+            "line": 47,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'format_display_date'",
+            "code": "'Don\\'t forget to return '.$return['thing_title'].' to '.$return['owner_fname'].' by '.format_display_date($return['booking_end_date']),"
+        },
+        {
+            "file": "index.php",
+            "line": 14,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST[\"Login\"]==\"Login\"){ include(\"includes\/login_process.inc\");};"
+        },
+        {
+            "file": "index.php",
+            "line": 15,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ( $_GET['logout']==1)     { include(\"includes\/logout_process.inc\");}"
+        },
+        {
+            "file": "index.php",
+            "line": 21,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_GET[\"showlogin\"]==1 )  { include(\"includes\/login_form.inc\");}"
+        },
+        {
+            "file": "joingroup.php",
+            "line": 26,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if (isset($_POST[\"joingroup\"]) ) {"
+        },
+        {
+            "file": "joingroup.php",
+            "line": 27,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$query = 'select * from members where member_email = '.qq($_POST[\"groupemail\"]);"
+        },
+        {
+            "file": "joingroup.php",
+            "line": 36,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$query = 'select * from communities where member_ID = '.$record[\"member_ID\"].' and password = '.qq($_POST[\"grouppassword\"]);"
+        },
+        {
+            "file": "joingroup.php",
+            "line": 36,
+            "severity": "SECURITY",
+            "message": "Plain text password storage",
+            "code": "$query = 'select * from communities where member_ID = '.$record[\"member_ID\"].' and password = '.qq($_POST[\"grouppassword\"]);"
+        },
+        {
+            "file": "joingroup.php",
+            "line": 50,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Group email\",'<input type=\"text\" name=\"groupemail\">');"
+        },
+        {
+            "file": "joingroup.php",
+            "line": 51,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Password\",'<input type=\"text\" name=\"grouppassword\">');"
+        },
+        {
+            "file": "joingroup.php",
+            "line": 52,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"\",'<input type=\"submit\" name=\"joingroup\" value=\"Join group\">');"
+        },
+        {
+            "file": "joingroup.php",
+            "line": 69,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2($record2[\"community_name\"],\"\");"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 18,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST[\"action\"] == \"approve\" && $_POST[\"booking_id\"]) {"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 19,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$result = update_booking_status($_POST[\"booking_id\"], 2, $_SESSION[\"member_ID\"]);"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 19,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'update_booking_status'",
+            "code": "$result = update_booking_status($_POST[\"booking_id\"], 2, $_SESSION[\"member_ID\"]);"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 27,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST[\"action\"] == \"decline\" && $_POST[\"booking_id\"]) {"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 28,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$result = update_booking_status($_POST[\"booking_id\"], 5, $_SESSION[\"member_ID\"]);"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 28,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'update_booking_status'",
+            "code": "$result = update_booking_status($_POST[\"booking_id\"], 5, $_SESSION[\"member_ID\"]);"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 36,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST[\"action\"] == \"mark_returned\" && $_POST[\"booking_id\"]) {"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 38,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "WHERE booking_ID = \".qq($_POST[\"booking_id\"]).\""
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 39,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "AND owner_ID = \".qq($_SESSION[\"member_ID\"]);"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 50,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'get_member_bookings'",
+            "code": "$my_requests = get_member_bookings($_SESSION[\"member_ID\"], false);"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 65,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'get_booking_status_text'",
+            "code": "$status_text = get_booking_status_text($booking['booking_status']);"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 66,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'get_booking_status_color'",
+            "code": "$status_color = get_booking_status_color($booking['booking_status']);"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 71,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'format_display_date'",
+            "code": "echo '<td>'.format_display_date($booking['booking_start_date']).' to '.format_display_date($booking['booking_end_date']).'<\/td>';"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 71,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'format_display_date'",
+            "code": "echo '<td>'.format_display_date($booking['booking_start_date']).' to '.format_display_date($booking['booking_end_date']).'<\/td>';"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 83,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'get_member_bookings'",
+            "code": "$owner_requests = get_member_bookings($_SESSION[\"member_ID\"], true);"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 99,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'get_booking_status_text'",
+            "code": "$status_text = get_booking_status_text($booking['booking_status']);"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 100,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'get_booking_status_color'",
+            "code": "$status_color = get_booking_status_color($booking['booking_status']);"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 105,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'format_display_date'",
+            "code": "echo '<td>'.format_display_date($booking['booking_start_date']).' to '.format_display_date($booking['booking_end_date']).'<\/td>';"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 105,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'format_display_date'",
+            "code": "echo '<td>'.format_display_date($booking['booking_start_date']).' to '.format_display_date($booking['booking_end_date']).'<\/td>';"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 156,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Requests I've made:\", $total_requests);"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 157,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Requests for my items:\", $total_owner_requests);"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 158,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"My pending requests:\", $pending_requests);"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 159,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Items I'm currently borrowing:\", $active_loans);"
+        },
+        {
+            "file": "notifications.php",
+            "line": 24,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST[\"mark_read\"] && $_POST[\"notification_id\"]) {"
+        },
+        {
+            "file": "notifications.php",
+            "line": 25,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "mark_notification_read($_POST[\"notification_id\"], $_SESSION[\"member_ID\"]);"
+        },
+        {
+            "file": "notifications.php",
+            "line": 25,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'mark_notification_read'",
+            "code": "mark_notification_read($_POST[\"notification_id\"], $_SESSION[\"member_ID\"]);"
+        },
+        {
+            "file": "notifications.php",
+            "line": 30,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST[\"mark_all_read\"]) {"
+        },
+        {
+            "file": "notifications.php",
+            "line": 42,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'get_unread_notification_count'",
+            "code": "$unread_count = get_unread_notification_count($_SESSION[\"member_ID\"]);"
+        },
+        {
+            "file": "notifications.php",
+            "line": 43,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'get_member_notifications'",
+            "code": "$all_notifications = get_member_notifications($_SESSION[\"member_ID\"], 20, false);"
+        },
+        {
+            "file": "notifications.php",
+            "line": 62,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'get_notification_type_info'",
+            "code": "$type_info = get_notification_type_info($notification['notification_type']);"
+        },
+        {
+            "file": "notifications.php",
+            "line": 71,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'time_ago'",
+            "code": "echo '<small style=\"color: #666;\">'.time_ago($notification['notification_created']).'<\/small>';"
+        },
+        {
+            "file": "notifications.php",
+            "line": 99,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST[\"update_preferences\"]) {"
+        },
+        {
+            "file": "notifications.php",
+            "line": 100,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$email_notifications = $_POST[\"email_notifications\"] ? 1 : 0;"
+        },
+        {
+            "file": "notifications.php",
+            "line": 101,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$sms_notifications = $_POST[\"sms_notifications\"] ? 1 : 0;"
+        },
+        {
+            "file": "notifications.php",
+            "line": 102,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$phone_number = $_POST[\"phone_number\"];"
+        },
+        {
+            "file": "notifications.php",
+            "line": 103,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$notification_frequency = $_POST[\"notification_frequency\"];"
+        },
+        {
+            "file": "notifications.php",
+            "line": 107,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "sms_notifications = \".qq($sms_notifications).\","
+        },
+        {
+            "file": "notifications.php",
+            "line": 108,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "phone_number = \".qq($phone_number).\","
+        },
+        {
+            "file": "notifications.php",
+            "line": 109,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'qq'",
+            "code": "notification_frequency = \".qq($notification_frequency).\""
+        },
+        {
+            "file": "notifications.php",
+            "line": 129,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Email Notifications:\", '<input type=\"checkbox\" name=\"email_notifications\" value=\"1\" '.$email_checked.'> Receive notifications by email');"
+        },
+        {
+            "file": "notifications.php",
+            "line": 133,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"SMS Notifications:\", '<input type=\"checkbox\" name=\"sms_notifications\" value=\"1\" '.$sms_checked.'> Receive urgent notifications by SMS <em>(coming soon)<\/em>');"
+        },
+        {
+            "file": "notifications.php",
+            "line": 136,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Mobile Number:\", '<input type=\"tel\" name=\"phone_number\" value=\"'.$prefs['phone_number'].'\" placeholder=\"+44 7xxx xxx xxx\"> For SMS notifications');"
+        },
+        {
+            "file": "notifications.php",
+            "line": 140,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'Immediate'",
+            "code": "'immediate' => 'Immediate (as they happen)',"
+        },
+        {
+            "file": "notifications.php",
+            "line": 141,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'digest'",
+            "code": "'daily' => 'Daily digest (once per day)',"
+        },
+        {
+            "file": "notifications.php",
+            "line": 142,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'digest'",
+            "code": "'weekly' => 'Weekly digest (once per week)'"
+        },
+        {
+            "file": "notifications.php",
+            "line": 152,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Email Frequency:\", $frequency_select);"
+        },
+        {
+            "file": "register.php",
+            "line": 30,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$pagespass = $_POST['pagespass'];"
+        },
+        {
+            "file": "register.php",
+            "line": 31,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\/\/$member_email = $_POST['email'];"
+        },
+        {
+            "file": "register.php",
+            "line": 36,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST['submitcount']==\"Submit\" ) {"
+        },
+        {
+            "file": "register.php",
+            "line": 38,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\/\/echo '<BR>'.$_POST['submitcount'];"
+        },
+        {
+            "file": "register.php",
+            "line": 39,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\/\/echo '<BR>'.$_POST['rowcount'];"
+        },
+        {
+            "file": "register.php",
+            "line": 43,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "for ($i=1; $i<=$_POST['rowcount']; $i++) {"
+        },
+        {
+            "file": "register.php",
+            "line": 45,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$query = \"insert into member_communities ( member_ID, community_ID ) values ( '\".$_SESSION['member_ID'].\"' , '\".$_POST[$varname].\"' )\";"
+        },
+        {
+            "file": "register.php",
+            "line": 51,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST['submit2'] == \"Register\") {"
+        },
+        {
+            "file": "register.php",
+            "line": 55,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$query5 = \"select * from members where member_email = \".qq($_POST['email']);"
+        },
+        {
+            "file": "register.php",
+            "line": 64,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$temp2 = $_POST['pagespass'];"
+        },
+        {
+            "file": "register.php",
+            "line": 65,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$query = \"INSERT INTO members (`member_fname`, `member_email`, `member_password`, `member_lname`, `member_pcode`) VALUES ('\".$_POST['fname'].\"', '\".$_POST['email'].\"', '\".$temp2.\"', '\".$_POST['lname'].\"', '\".$_POST['pcode'].\"')\";"
+        },
+        {
+            "file": "register.php",
+            "line": 69,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$_SESSION['member_email'] = $_POST['email'];"
+        },
+        {
+            "file": "register.php",
+            "line": 72,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$query3 = 'select * from members where member_email = \"'.$_POST['email'].'\"';"
+        },
+        {
+            "file": "register.php",
+            "line": 77,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$_SESSION['member_email'] = $_POST['email'];"
+        },
+        {
+            "file": "register.php",
+            "line": 84,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$pcode5 = substr($_POST[\"pcode\"],0,5).\"*\"; $pcode6 = substr($_POST[\"pcode\"],0,6).\"*\"; $pcode7 = substr($_POST[\"pcode\"],0,7).\"*\"; $pcode8 = substr($_POST[\"pcode\"],0,8);"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 26,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$thing_ID = $_GET[\"thing_id\"] ? intval($_GET[\"thing_id\"]) : 0;"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 51,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST[\"submit_booking\"] && !$error_message) {"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 52,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$start_date = $_POST[\"start_date\"];"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 53,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$end_date = $_POST[\"end_date\"];"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 54,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$notes = $_POST[\"notes\"];"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 63,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'check_booking_availability'",
+            "code": "} elseif (!check_booking_availability($thing_ID, $start_date, $end_date)) {"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 67,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'create_booking_request'",
+            "code": "$booking_ID = create_booking_request($thing_ID, $_SESSION[\"member_ID\"], $start_date, $end_date, $notes);"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 94,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Item:\", $item['thing_title']);"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 95,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Description:\", $item['thing_description']);"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 96,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Owner:\", $item['member_fname'].' '.$item['member_lname']);"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 97,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Price per day:\", '\u00a3'.$item['thing_price']);"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 98,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "if ($item['thing_min_loan_days']) echo cell2(\"Minimum loan:\", $item['thing_min_loan_days'].' days');"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 99,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "if ($item['thing_max_loan_days']) echo cell2(\"Maximum loan:\", $item['thing_max_loan_days'].' days');"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 111,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "echo cell2(\"Start Date:\", '<input type=\"date\" name=\"start_date\" value=\"'.$_POST['start_date'].'\" class=\"date-input\" min=\"'.date('Y-m-d').'\" required>');"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 111,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Start Date:\", '<input type=\"date\" name=\"start_date\" value=\"'.$_POST['start_date'].'\" class=\"date-input\" min=\"'.date('Y-m-d').'\" required>');"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 112,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "echo cell2(\"End Date:\", '<input type=\"date\" name=\"end_date\" value=\"'.$_POST['end_date'].'\" class=\"date-input\" min=\"'.date('Y-m-d').'\" required>');"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 112,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"End Date:\", '<input type=\"date\" name=\"end_date\" value=\"'.$_POST['end_date'].'\" class=\"date-input\" min=\"'.date('Y-m-d').'\" required>');"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 115,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "echo '<tr><td width=\"200\">Special requests or notes:<\/td><td><textarea name=\"notes\" class=\"notes-input\" placeholder=\"Any special requests, pickup arrangements, etc.\">'.$_POST['notes'].'<\/textarea><\/td><\/tr>';"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 127,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'generate_availability_calendar'",
+            "code": "$booked_dates = generate_availability_calendar($thing_ID);"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 160,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'toFixed'",
+            "code": "'<strong>Total Cost:<\/strong> \u00a3' + totalCost.toFixed(2) + ' (' + days + ' \u00d7 \u00a3' + pricePerDay + ')';"
+        },
+        {
+            "file": "search.php",
+            "line": 21,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "echo cell2(\"search keywords\",'<input type=\"text\" name=\"keywords\" value=\"'.$_POST[\"keywords\"].'\">');"
+        },
+        {
+            "file": "search.php",
+            "line": 21,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"search keywords\",'<input type=\"text\" name=\"keywords\" value=\"'.$_POST[\"keywords\"].'\">');"
+        },
+        {
+            "file": "search.php",
+            "line": 23,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ( $_POST[\"item_type\"]==1){"
+        },
+        {
+            "file": "search.php",
+            "line": 25,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "} elseif ($_POST[\"item_type\"]==2) {"
+        },
+        {
+            "file": "search.php",
+            "line": 30,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"\",'<input type=\"submit\" name=\"search\" value=\"Search\">');"
+        },
+        {
+            "file": "search.php",
+            "line": 37,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if (isset($_POST[\"item_ID\"])) {"
+        },
+        {
+            "file": "search.php",
+            "line": 39,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$query = 'select * from things where thing_ID = '.qq($_POST[\"item_ID\"]);"
+        },
+        {
+            "file": "search.php",
+            "line": 45,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Item\",$record[\"thing_title\"]);"
+        },
+        {
+            "file": "search.php",
+            "line": 46,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Description\",$record[\"thing_description\"]);"
+        },
+        {
+            "file": "search.php",
+            "line": 47,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"type\",$type);"
+        },
+        {
+            "file": "search.php",
+            "line": 48,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell2'",
+            "code": "echo cell2(\"Price\",'\u00a3'.$record[\"thing_price\"].$term);"
+        },
+        {
+            "file": "search.php",
+            "line": 55,
+            "severity": "UNDEFINED_FUNCTION",
+            "message": "Undefined function 'cell6'",
+            "code": "echo cell6(\"<b>Short description<\/b>\",\"<b>Terms<\/b>\",\"<b>Price<\/b>\",\"<b>Owner<\/b>\",\"<b>Details<\/b>\",\"<b>Actions<\/b>\");"
+        },
+        {
+            "file": "search.php",
+            "line": 56,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if (isset($_POST[\"search\"])) {"
+        },
+        {
+            "file": "search.php",
+            "line": 58,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ( $_POST[\"item_type\"]==1){"
+        },
+        {
+            "file": "search.php",
+            "line": 60,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "} elseif ($_POST[\"item_type\"]==2) {"
+        },
+        {
+            "file": "search.php",
+            "line": 72,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "and thing_title like \"%'.$_POST[\"keywords\"].'%\" '.$temp_type.'"
+        },
+        {
+            "file": "search.php",
+            "line": 84,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$button3 = '<input type=\"hidden\" name=\"keywords\" value=\"'.$_POST[\"keywords\"] .'\">';"
+        },
+        {
+            "file": "search.php",
+            "line": 85,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$button4 = '<input type=\"hidden\" name=\"item_type\" value=\"'.$_POST[\"item_type\"] .'\">';"
+        },
+        {
+            "file": "search.php",
+            "line": 86,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$button5 = '<input type=\"hidden\" name=\"search\" value=\"'.$_POST[\"search\"] .'\">';"
+        }
+    ],
+    "defined_functions": {
+        "calculateCost": {
+            "file": "request_booking.php",
+            "line": 140,
+            "definition": "function calculateCost() {"
+        }
+    },
+    "include_dependencies": {
+        "account.php": [
+            {
+                "path": "includes\/connect.inc",
+                "line": 13,
+                "statement": "include(\"includes\/connect.inc\");"
+            },
+            {
+                "path": "includes\/miscfunctions.inc",
+                "line": 14,
+                "statement": "include(\"includes\/miscfunctions.inc\");"
+            },
+            {
+                "path": "includes\/header.inc",
+                "line": 15,
+                "statement": "include(\"includes\/header.inc\");"
+            }
+        ],
+        "add_listing.php": [
+            {
+                "path": "includes\/connect.inc",
+                "line": 13,
+                "statement": "include(\"includes\/connect.inc\");"
+            },
+            {
+                "path": "includes\/miscfunctions.inc",
+                "line": 14,
+                "statement": "include(\"includes\/miscfunctions.inc\");"
+            },
+            {
+                "path": "includes\/header.inc",
+                "line": 15,
+                "statement": "include(\"includes\/header.inc\");"
+            }
+        ],
+        "create_private.php": [
+            {
+                "path": "includes\/connect.inc",
+                "line": 13,
+                "statement": "include(\"includes\/connect.inc\");"
+            },
+            {
+                "path": "includes\/miscfunctions.inc",
+                "line": 14,
+                "statement": "include(\"includes\/miscfunctions.inc\");"
+            },
+            {
+                "path": "includes\/header.inc",
+                "line": 15,
+                "statement": "include(\"includes\/header.inc\");"
+            }
+        ],
+        "index.php": [
+            {
+                "path": "includes\/miscfunctions.inc",
+                "line": 11,
+                "statement": "include(\"includes\/miscfunctions.inc\");"
+            },
+            {
+                "path": "includes\/connect.inc",
+                "line": 12,
+                "statement": "include(\"includes\/connect.inc\");"
+            },
+            {
+                "path": "includes\/login_process.inc",
+                "line": 14,
+                "statement": "if ($_POST[\"Login\"]==\"Login\"){ include(\"includes\/login_process.inc\");};"
+            },
+            {
+                "path": "includes\/logout_process.inc",
+                "line": 15,
+                "statement": "if ( $_GET['logout']==1)     { include(\"includes\/logout_process.inc\");}"
+            },
+            {
+                "path": "includes\/header2.inc",
+                "line": 18,
+                "statement": "include(\"includes\/header2.inc\");"
+            },
+            {
+                "path": "includes\/login_form.inc",
+                "line": 21,
+                "statement": "if ($_GET[\"showlogin\"]==1 )  { include(\"includes\/login_form.inc\");}"
+            }
+        ],
+        "joingroup.php": [
+            {
+                "path": "includes\/connect.inc",
+                "line": 10,
+                "statement": "include(\"includes\/connect.inc\");"
+            },
+            {
+                "path": "includes\/miscfunctions.inc",
+                "line": 11,
+                "statement": "include(\"includes\/miscfunctions.inc\");"
+            },
+            {
+                "path": "includes\/header.inc",
+                "line": 12,
+                "statement": "include(\"includes\/header.inc\");"
+            }
+        ],
+        "my_bookings.php": [
+            {
+                "path": "includes\/connect.inc",
+                "line": 11,
+                "statement": "include(\"includes\/connect.inc\");"
+            },
+            {
+                "path": "includes\/miscfunctions.inc",
+                "line": 12,
+                "statement": "include(\"includes\/miscfunctions.inc\");"
+            },
+            {
+                "path": "includes\/booking_functions.inc",
+                "line": 13,
+                "statement": "include(\"includes\/booking_functions.inc\");"
+            },
+            {
+                "path": "includes\/notification_functions.inc",
+                "line": 14,
+                "statement": "include(\"includes\/notification_functions.inc\");"
+            },
+            {
+                "path": "includes\/header.inc",
+                "line": 15,
+                "statement": "include(\"includes\/header.inc\");"
+            }
+        ],
+        "notifications.php": [
+            {
+                "path": "includes\/connect.inc",
+                "line": 18,
+                "statement": "include(\"includes\/connect.inc\");"
+            },
+            {
+                "path": "includes\/miscfunctions.inc",
+                "line": 19,
+                "statement": "include(\"includes\/miscfunctions.inc\");"
+            },
+            {
+                "path": "includes\/notification_functions.inc",
+                "line": 20,
+                "statement": "include(\"includes\/notification_functions.inc\");"
+            },
+            {
+                "path": "includes\/header.inc",
+                "line": 21,
+                "statement": "include(\"includes\/header.inc\");"
+            }
+        ],
+        "register.php": [
+            {
+                "path": "includes\/connect.inc",
+                "line": 13,
+                "statement": "include(\"includes\/connect.inc\");"
+            },
+            {
+                "path": "includes\/miscfunctions.inc",
+                "line": 14,
+                "statement": "include(\"includes\/miscfunctions.inc\");"
+            },
+            {
+                "path": "includes\/header2.inc",
+                "line": 15,
+                "statement": "include(\"includes\/header2.inc\");"
+            }
+        ],
+        "request_booking.php": [
+            {
+                "path": "includes\/connect.inc",
+                "line": 20,
+                "statement": "include(\"includes\/connect.inc\");"
+            },
+            {
+                "path": "includes\/miscfunctions.inc",
+                "line": 21,
+                "statement": "include(\"includes\/miscfunctions.inc\");"
+            },
+            {
+                "path": "includes\/booking_functions.inc",
+                "line": 22,
+                "statement": "include(\"includes\/booking_functions.inc\");"
+            },
+            {
+                "path": "includes\/notification_functions.inc",
+                "line": 23,
+                "statement": "include(\"includes\/notification_functions.inc\");"
+            },
+            {
+                "path": "includes\/header.inc",
+                "line": 24,
+                "statement": "include(\"includes\/header.inc\");"
+            }
+        ],
+        "search.php": [
+            {
+                "path": "includes\/connect.inc",
+                "line": 13,
+                "statement": "include(\"includes\/connect.inc\");"
+            },
+            {
+                "path": "includes\/miscfunctions.inc",
+                "line": 14,
+                "statement": "include(\"includes\/miscfunctions.inc\");"
+            },
+            {
+                "path": "includes\/booking_functions.inc",
+                "line": 15,
+                "statement": "include(\"includes\/booking_functions.inc\");"
+            },
+            {
+                "path": "includes\/notification_functions.inc",
+                "line": 16,
+                "statement": "include(\"includes\/notification_functions.inc\");"
+            },
+            {
+                "path": "includes\/header.inc",
+                "line": 17,
+                "statement": "include(\"includes\/header.inc\");"
+            }
+        ]
+    }
+}

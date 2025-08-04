@@ -1,0 +1,790 @@
+{
+    "timestamp": "2025-08-04T12:31:12+00:00",
+    "total_issues": 112,
+    "problems": [
+        {
+            "file": "account.php",
+            "line": 30,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if (isset($_POST[\"makegroup\"]) && $_POST[\"makegroup\"]==\"Create group\" ) {"
+        },
+        {
+            "file": "account.php",
+            "line": 32,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$query = 'insert into communities ( member_ID , community_name , password ) values ( '.$_SESSION['member_ID'].' , '.qq($_POST[\"groupname\"]).' , '.qq($_POST[\"grouppassword\"]).' )';"
+        },
+        {
+            "file": "account.php",
+            "line": 36,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$query = 'select * from communities where community_name = '.qq($_POST[\"groupname\"]).' and member_ID = '.$_SESSION[\"member_ID\"].'';"
+        },
+        {
+            "file": "account.php",
+            "line": 47,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if (isset($_POST[\"deletegroup\"]) && $_POST[\"deletegroup\"]>0 ) {"
+        },
+        {
+            "file": "account.php",
+            "line": 49,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "echo $query = 'delete from communities where community_ID = '.$_POST[\"deletegroup\"];"
+        },
+        {
+            "file": "account.php",
+            "line": 64,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST['submitcount']==\"Submit\" ) {"
+        },
+        {
+            "file": "account.php",
+            "line": 66,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "for ($i=1; $i<=$_POST['rowcount']; $i++) {"
+        },
+        {
+            "file": "account.php",
+            "line": 69,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ( isset($_POST[$varname]) ) {"
+        },
+        {
+            "file": "account.php",
+            "line": 71,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$query = 'select * from member_communities where member_ID = '.$_SESSION['member_ID'].' and community_ID = '.$_POST[$varname];"
+        },
+        {
+            "file": "account.php",
+            "line": 78,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$query = \"insert into member_communities ( member_ID, community_ID ) values ( '\".$_SESSION['member_ID'].\"' , '\".$_POST[$varname].\"' )\";"
+        },
+        {
+            "file": "account.php",
+            "line": 82,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$query = \"delete from member_communities where member_ID = \".$_SESSION['member_ID'].\" and  community_ID = \".$_POST[$varnameb];"
+        },
+        {
+            "file": "account.php",
+            "line": 90,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST['submit2'] == \"Re-save\") {"
+        },
+        {
+            "file": "account.php",
+            "line": 92,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "'member_fname = '.qq($_POST['fname']).' , '."
+        },
+        {
+            "file": "account.php",
+            "line": 93,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "'member_lname = '.qq($_POST['lname']).' , '."
+        },
+        {
+            "file": "account.php",
+            "line": 94,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "'member_email = '.qq($_POST['email']).' , '."
+        },
+        {
+            "file": "account.php",
+            "line": 95,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "'member_password = '.qq($_POST['pagespass']).' , '."
+        },
+        {
+            "file": "account.php",
+            "line": 95,
+            "severity": "SECURITY",
+            "message": "Plain text password storage",
+            "code": "'member_password = '.qq($_POST['pagespass']).' , '."
+        },
+        {
+            "file": "account.php",
+            "line": 96,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "'member_pcode = '.qq($_POST['pcode']).' '."
+        },
+        {
+            "file": "account.php",
+            "line": 101,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$_SESSION['member_email'] = $_POST['email'];"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 20,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\/\/echo 'thing_ID is '.$_POST[\"thing_ID\"];"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 21,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$this_thing_ID = $_POST[\"thing_ID\"];"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 24,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST[\"checkword\"] == \"check\") {"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 25,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ( $_POST[\"thing_ID\"] == 0) {"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 28,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "qq($_POST[\"thing_title\"]).\", \"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 29,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "qq($_POST[\"thing_price\"]).\", \"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 30,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "qq($_POST[\"thing_type\"]).\", \"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 31,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "qq($_POST[\"thing_ratio\"]).\", \"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 32,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "qq($_POST[\"thing_description\"]).\", \"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 34,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "qq($_POST[\"thing_image\"]).\" )\";"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 43,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$this_thing_ID = $_POST[\"thing_ID\"];"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 45,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\" thing_description = \".qq($_POST[\"thing_description\"]).\" ,\"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 46,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\" thing_price       = \".qq($_POST[\"thing_price\"]).\" ,\"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 47,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\" thing_type        = \".qq($_POST[\"thing_type\"]).\" ,\"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 48,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\" thing_ratio       = \".qq($_POST[\"thing_ratio\"]).\" ,\"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 49,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\" thing_title       = \".qq($_POST[\"thing_title\"]).\" \"."
+        },
+        {
+            "file": "add_listing.php",
+            "line": 58,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\/\/echo '<br>num comms = '.$_POST[\"num_comms\"];"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 65,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "for ( $i=1; $i<=$_POST[\"num_comms\"]; $i++) {"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 67,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$temp2 = $_POST[$temp3];"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 90,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if (isset($_POST[\"edit\"])) {"
+        },
+        {
+            "file": "add_listing.php",
+            "line": 101,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "} elseif ( isset($_POST[\"item_delete\"]) ) {"
+        },
+        {
+            "file": "create_private.php",
+            "line": 56,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\/\/echo 'thing_ID is '.$_POST[\"thing_ID\"];"
+        },
+        {
+            "file": "create_private.php",
+            "line": 57,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$this_thing_ID = $_POST[\"thing_ID\"];"
+        },
+        {
+            "file": "create_private.php",
+            "line": 62,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST[\"checkword\"] == \"check\") {"
+        },
+        {
+            "file": "create_private.php",
+            "line": 63,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ( $_POST[\"thing_ID\"] == 0) {"
+        },
+        {
+            "file": "create_private.php",
+            "line": 66,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "qq($_POST[\"thing_title\"]).\", \"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 67,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "qq($_POST[\"thing_price\"]).\", \"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 68,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "qq($_POST[\"thing_type\"]).\", \"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 69,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "qq($_POST[\"thing_ratio\"]).\", \"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 70,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "qq($_POST[\"thing_description\"]).\", \"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 72,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "qq($_POST[\"thing_image\"]).\" )\";"
+        },
+        {
+            "file": "create_private.php",
+            "line": 81,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$this_thing_ID = $_POST[\"thing_ID\"];"
+        },
+        {
+            "file": "create_private.php",
+            "line": 83,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\" thing_description = \".qq($_POST[\"thing_description\"]).\" ,\"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 84,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\" thing_price       = \".qq($_POST[\"thing_price\"]).\" ,\"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 85,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\" thing_type        = \".qq($_POST[\"thing_type\"]).\" ,\"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 86,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\" thing_ratio       = \".qq($_POST[\"thing_ratio\"]).\" ,\"."
+        },
+        {
+            "file": "create_private.php",
+            "line": 87,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\" thing_title       = \".qq($_POST[\"thing_title\"]).\" \"."
+        },
+        {
+            "file": "index.php",
+            "line": 14,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST[\"Login\"]==\"Login\"){ include(\"includes\/login_process.inc\");};"
+        },
+        {
+            "file": "index.php",
+            "line": 15,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ( $_GET['logout']==1)     { include(\"includes\/logout_process.inc\");}"
+        },
+        {
+            "file": "index.php",
+            "line": 21,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_GET[\"showlogin\"]==1 )  { include(\"includes\/login_form.inc\");}"
+        },
+        {
+            "file": "joingroup.php",
+            "line": 26,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if (isset($_POST[\"joingroup\"]) ) {"
+        },
+        {
+            "file": "joingroup.php",
+            "line": 27,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$query = 'select * from members where member_email = '.qq($_POST[\"groupemail\"]);"
+        },
+        {
+            "file": "joingroup.php",
+            "line": 36,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$query = 'select * from communities where member_ID = '.$record[\"member_ID\"].' and password = '.qq($_POST[\"grouppassword\"]);"
+        },
+        {
+            "file": "joingroup.php",
+            "line": 36,
+            "severity": "SECURITY",
+            "message": "Plain text password storage",
+            "code": "$query = 'select * from communities where member_ID = '.$record[\"member_ID\"].' and password = '.qq($_POST[\"grouppassword\"]);"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 18,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST[\"action\"] == \"approve\" && $_POST[\"booking_id\"]) {"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 19,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$result = update_booking_status($_POST[\"booking_id\"], 2, $_SESSION[\"member_ID\"]);"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 27,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST[\"action\"] == \"decline\" && $_POST[\"booking_id\"]) {"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 28,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$result = update_booking_status($_POST[\"booking_id\"], 5, $_SESSION[\"member_ID\"]);"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 36,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST[\"action\"] == \"mark_returned\" && $_POST[\"booking_id\"]) {"
+        },
+        {
+            "file": "my_bookings.php",
+            "line": 38,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "WHERE booking_ID = \".qq($_POST[\"booking_id\"]).\""
+        },
+        {
+            "file": "notifications.php",
+            "line": 24,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST[\"mark_read\"] && $_POST[\"notification_id\"]) {"
+        },
+        {
+            "file": "notifications.php",
+            "line": 25,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "mark_notification_read($_POST[\"notification_id\"], $_SESSION[\"member_ID\"]);"
+        },
+        {
+            "file": "notifications.php",
+            "line": 30,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST[\"mark_all_read\"]) {"
+        },
+        {
+            "file": "notifications.php",
+            "line": 99,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST[\"update_preferences\"]) {"
+        },
+        {
+            "file": "notifications.php",
+            "line": 100,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$email_notifications = $_POST[\"email_notifications\"] ? 1 : 0;"
+        },
+        {
+            "file": "notifications.php",
+            "line": 101,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$sms_notifications = $_POST[\"sms_notifications\"] ? 1 : 0;"
+        },
+        {
+            "file": "notifications.php",
+            "line": 102,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$phone_number = $_POST[\"phone_number\"];"
+        },
+        {
+            "file": "notifications.php",
+            "line": 103,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$notification_frequency = $_POST[\"notification_frequency\"];"
+        },
+        {
+            "file": "register.php",
+            "line": 30,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$pagespass = $_POST['pagespass'];"
+        },
+        {
+            "file": "register.php",
+            "line": 31,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\/\/$member_email = $_POST['email'];"
+        },
+        {
+            "file": "register.php",
+            "line": 36,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST['submitcount']==\"Submit\" ) {"
+        },
+        {
+            "file": "register.php",
+            "line": 38,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\/\/echo '<BR>'.$_POST['submitcount'];"
+        },
+        {
+            "file": "register.php",
+            "line": 39,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "\/\/echo '<BR>'.$_POST['rowcount'];"
+        },
+        {
+            "file": "register.php",
+            "line": 43,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "for ($i=1; $i<=$_POST['rowcount']; $i++) {"
+        },
+        {
+            "file": "register.php",
+            "line": 45,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$query = \"insert into member_communities ( member_ID, community_ID ) values ( '\".$_SESSION['member_ID'].\"' , '\".$_POST[$varname].\"' )\";"
+        },
+        {
+            "file": "register.php",
+            "line": 51,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST['submit2'] == \"Register\") {"
+        },
+        {
+            "file": "register.php",
+            "line": 55,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$query5 = \"select * from members where member_email = \".qq($_POST['email']);"
+        },
+        {
+            "file": "register.php",
+            "line": 64,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$temp2 = $_POST['pagespass'];"
+        },
+        {
+            "file": "register.php",
+            "line": 65,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$query = \"INSERT INTO members (`member_fname`, `member_email`, `member_password`, `member_lname`, `member_pcode`) VALUES ('\".$_POST['fname'].\"', '\".$_POST['email'].\"', '\".$temp2.\"', '\".$_POST['lname'].\"', '\".$_POST['pcode'].\"')\";"
+        },
+        {
+            "file": "register.php",
+            "line": 69,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$_SESSION['member_email'] = $_POST['email'];"
+        },
+        {
+            "file": "register.php",
+            "line": 72,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$query3 = 'select * from members where member_email = \"'.$_POST['email'].'\"';"
+        },
+        {
+            "file": "register.php",
+            "line": 77,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$_SESSION['member_email'] = $_POST['email'];"
+        },
+        {
+            "file": "register.php",
+            "line": 84,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$pcode5 = substr($_POST[\"pcode\"],0,5).\"*\"; $pcode6 = substr($_POST[\"pcode\"],0,6).\"*\"; $pcode7 = substr($_POST[\"pcode\"],0,7).\"*\"; $pcode8 = substr($_POST[\"pcode\"],0,8);"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 26,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$thing_ID = $_GET[\"thing_id\"] ? intval($_GET[\"thing_id\"]) : 0;"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 51,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ($_POST[\"submit_booking\"] && !$error_message) {"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 52,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$start_date = $_POST[\"start_date\"];"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 53,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$end_date = $_POST[\"end_date\"];"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 54,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$notes = $_POST[\"notes\"];"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 111,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "echo cell2(\"Start Date:\", '<input type=\"date\" name=\"start_date\" value=\"'.$_POST['start_date'].'\" class=\"date-input\" min=\"'.date('Y-m-d').'\" required>');"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 112,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "echo cell2(\"End Date:\", '<input type=\"date\" name=\"end_date\" value=\"'.$_POST['end_date'].'\" class=\"date-input\" min=\"'.date('Y-m-d').'\" required>');"
+        },
+        {
+            "file": "request_booking.php",
+            "line": 115,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "echo '<tr><td width=\"200\">Special requests or notes:<\/td><td><textarea name=\"notes\" class=\"notes-input\" placeholder=\"Any special requests, pickup arrangements, etc.\">'.$_POST['notes'].'<\/textarea><\/td><\/tr>';"
+        },
+        {
+            "file": "search.php",
+            "line": 21,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "echo cell2(\"search keywords\",'<input type=\"text\" name=\"keywords\" value=\"'.$_POST[\"keywords\"].'\">');"
+        },
+        {
+            "file": "search.php",
+            "line": 23,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ( $_POST[\"item_type\"]==1){"
+        },
+        {
+            "file": "search.php",
+            "line": 25,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "} elseif ($_POST[\"item_type\"]==2) {"
+        },
+        {
+            "file": "search.php",
+            "line": 37,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if (isset($_POST[\"item_ID\"])) {"
+        },
+        {
+            "file": "search.php",
+            "line": 39,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$query = 'select * from things where thing_ID = '.qq($_POST[\"item_ID\"]);"
+        },
+        {
+            "file": "search.php",
+            "line": 56,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if (isset($_POST[\"search\"])) {"
+        },
+        {
+            "file": "search.php",
+            "line": 58,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "if ( $_POST[\"item_type\"]==1){"
+        },
+        {
+            "file": "search.php",
+            "line": 60,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "} elseif ($_POST[\"item_type\"]==2) {"
+        },
+        {
+            "file": "search.php",
+            "line": 72,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "and thing_title like \"%'.$_POST[\"keywords\"].'%\" '.$temp_type.'"
+        },
+        {
+            "file": "search.php",
+            "line": 84,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$button3 = '<input type=\"hidden\" name=\"keywords\" value=\"'.$_POST[\"keywords\"] .'\">';"
+        },
+        {
+            "file": "search.php",
+            "line": 85,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$button4 = '<input type=\"hidden\" name=\"item_type\" value=\"'.$_POST[\"item_type\"] .'\">';"
+        },
+        {
+            "file": "search.php",
+            "line": 86,
+            "severity": "SECURITY",
+            "message": "Unescaped user input detected",
+            "code": "$button5 = '<input type=\"hidden\" name=\"search\" value=\"'.$_POST[\"search\"] .'\">';"
+        }
+    ]
+}

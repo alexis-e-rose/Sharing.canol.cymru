@@ -1,0 +1,1273 @@
+=== ENHANCED PROBLEM MATCHER REPORT ===
+Generated: 2025-08-04 12:42:25
+Total Issues: 421
+Defined Functions: 1
+
+## SECURITY ISSUES (112)
+account.php:30 - Unescaped user input detected
+  Code: if (isset($_POST["makegroup"]) && $_POST["makegroup"]=="Create group" ) {
+
+account.php:32 - Unescaped user input detected
+  Code: $query = 'insert into communities ( member_ID , community_name , password ) values ( '.$_SESSION['member_ID'].' , '.qq($_POST["groupname"]).' , '.qq($_POST["grouppassword"]).' )';
+
+account.php:36 - Unescaped user input detected
+  Code: $query = 'select * from communities where community_name = '.qq($_POST["groupname"]).' and member_ID = '.$_SESSION["member_ID"].'';
+
+account.php:47 - Unescaped user input detected
+  Code: if (isset($_POST["deletegroup"]) && $_POST["deletegroup"]>0 ) {
+
+account.php:49 - Unescaped user input detected
+  Code: echo $query = 'delete from communities where community_ID = '.$_POST["deletegroup"];
+
+account.php:64 - Unescaped user input detected
+  Code: if ($_POST['submitcount']=="Submit" ) {
+
+account.php:66 - Unescaped user input detected
+  Code: for ($i=1; $i<=$_POST['rowcount']; $i++) {
+
+account.php:69 - Unescaped user input detected
+  Code: if ( isset($_POST[$varname]) ) {
+
+account.php:71 - Unescaped user input detected
+  Code: $query = 'select * from member_communities where member_ID = '.$_SESSION['member_ID'].' and community_ID = '.$_POST[$varname];
+
+account.php:78 - Unescaped user input detected
+  Code: $query = "insert into member_communities ( member_ID, community_ID ) values ( '".$_SESSION['member_ID']."' , '".$_POST[$varname]."' )";
+
+account.php:82 - Unescaped user input detected
+  Code: $query = "delete from member_communities where member_ID = ".$_SESSION['member_ID']." and  community_ID = ".$_POST[$varnameb];
+
+account.php:90 - Unescaped user input detected
+  Code: if ($_POST['submit2'] == "Re-save") {
+
+account.php:92 - Unescaped user input detected
+  Code: 'member_fname = '.qq($_POST['fname']).' , '.
+
+account.php:93 - Unescaped user input detected
+  Code: 'member_lname = '.qq($_POST['lname']).' , '.
+
+account.php:94 - Unescaped user input detected
+  Code: 'member_email = '.qq($_POST['email']).' , '.
+
+account.php:95 - Unescaped user input detected
+  Code: 'member_password = '.qq($_POST['pagespass']).' , '.
+
+account.php:95 - Plain text password storage
+  Code: 'member_password = '.qq($_POST['pagespass']).' , '.
+
+account.php:96 - Unescaped user input detected
+  Code: 'member_pcode = '.qq($_POST['pcode']).' '.
+
+account.php:101 - Unescaped user input detected
+  Code: $_SESSION['member_email'] = $_POST['email'];
+
+add_listing.php:20 - Unescaped user input detected
+  Code: //echo 'thing_ID is '.$_POST["thing_ID"];
+
+add_listing.php:21 - Unescaped user input detected
+  Code: $this_thing_ID = $_POST["thing_ID"];
+
+add_listing.php:24 - Unescaped user input detected
+  Code: if ($_POST["checkword"] == "check") {
+
+add_listing.php:25 - Unescaped user input detected
+  Code: if ( $_POST["thing_ID"] == 0) {
+
+add_listing.php:28 - Unescaped user input detected
+  Code: qq($_POST["thing_title"]).", ".
+
+add_listing.php:29 - Unescaped user input detected
+  Code: qq($_POST["thing_price"]).", ".
+
+add_listing.php:30 - Unescaped user input detected
+  Code: qq($_POST["thing_type"]).", ".
+
+add_listing.php:31 - Unescaped user input detected
+  Code: qq($_POST["thing_ratio"]).", ".
+
+add_listing.php:32 - Unescaped user input detected
+  Code: qq($_POST["thing_description"]).", ".
+
+add_listing.php:34 - Unescaped user input detected
+  Code: qq($_POST["thing_image"])." )";
+
+add_listing.php:43 - Unescaped user input detected
+  Code: $this_thing_ID = $_POST["thing_ID"];
+
+add_listing.php:45 - Unescaped user input detected
+  Code: " thing_description = ".qq($_POST["thing_description"])." ,".
+
+add_listing.php:46 - Unescaped user input detected
+  Code: " thing_price       = ".qq($_POST["thing_price"])." ,".
+
+add_listing.php:47 - Unescaped user input detected
+  Code: " thing_type        = ".qq($_POST["thing_type"])." ,".
+
+add_listing.php:48 - Unescaped user input detected
+  Code: " thing_ratio       = ".qq($_POST["thing_ratio"])." ,".
+
+add_listing.php:49 - Unescaped user input detected
+  Code: " thing_title       = ".qq($_POST["thing_title"])." ".
+
+add_listing.php:58 - Unescaped user input detected
+  Code: //echo '<br>num comms = '.$_POST["num_comms"];
+
+add_listing.php:65 - Unescaped user input detected
+  Code: for ( $i=1; $i<=$_POST["num_comms"]; $i++) {
+
+add_listing.php:67 - Unescaped user input detected
+  Code: $temp2 = $_POST[$temp3];
+
+add_listing.php:90 - Unescaped user input detected
+  Code: if (isset($_POST["edit"])) {
+
+add_listing.php:101 - Unescaped user input detected
+  Code: } elseif ( isset($_POST["item_delete"]) ) {
+
+create_private.php:56 - Unescaped user input detected
+  Code: //echo 'thing_ID is '.$_POST["thing_ID"];
+
+create_private.php:57 - Unescaped user input detected
+  Code: $this_thing_ID = $_POST["thing_ID"];
+
+create_private.php:62 - Unescaped user input detected
+  Code: if ($_POST["checkword"] == "check") {
+
+create_private.php:63 - Unescaped user input detected
+  Code: if ( $_POST["thing_ID"] == 0) {
+
+create_private.php:66 - Unescaped user input detected
+  Code: qq($_POST["thing_title"]).", ".
+
+create_private.php:67 - Unescaped user input detected
+  Code: qq($_POST["thing_price"]).", ".
+
+create_private.php:68 - Unescaped user input detected
+  Code: qq($_POST["thing_type"]).", ".
+
+create_private.php:69 - Unescaped user input detected
+  Code: qq($_POST["thing_ratio"]).", ".
+
+create_private.php:70 - Unescaped user input detected
+  Code: qq($_POST["thing_description"]).", ".
+
+create_private.php:72 - Unescaped user input detected
+  Code: qq($_POST["thing_image"])." )";
+
+create_private.php:81 - Unescaped user input detected
+  Code: $this_thing_ID = $_POST["thing_ID"];
+
+create_private.php:83 - Unescaped user input detected
+  Code: " thing_description = ".qq($_POST["thing_description"])." ,".
+
+create_private.php:84 - Unescaped user input detected
+  Code: " thing_price       = ".qq($_POST["thing_price"])." ,".
+
+create_private.php:85 - Unescaped user input detected
+  Code: " thing_type        = ".qq($_POST["thing_type"])." ,".
+
+create_private.php:86 - Unescaped user input detected
+  Code: " thing_ratio       = ".qq($_POST["thing_ratio"])." ,".
+
+create_private.php:87 - Unescaped user input detected
+  Code: " thing_title       = ".qq($_POST["thing_title"])." ".
+
+index.php:14 - Unescaped user input detected
+  Code: if ($_POST["Login"]=="Login"){ include("includes/login_process.inc");};
+
+index.php:15 - Unescaped user input detected
+  Code: if ( $_GET['logout']==1)     { include("includes/logout_process.inc");}
+
+index.php:21 - Unescaped user input detected
+  Code: if ($_GET["showlogin"]==1 )  { include("includes/login_form.inc");}
+
+joingroup.php:26 - Unescaped user input detected
+  Code: if (isset($_POST["joingroup"]) ) {
+
+joingroup.php:27 - Unescaped user input detected
+  Code: $query = 'select * from members where member_email = '.qq($_POST["groupemail"]);
+
+joingroup.php:36 - Unescaped user input detected
+  Code: $query = 'select * from communities where member_ID = '.$record["member_ID"].' and password = '.qq($_POST["grouppassword"]);
+
+joingroup.php:36 - Plain text password storage
+  Code: $query = 'select * from communities where member_ID = '.$record["member_ID"].' and password = '.qq($_POST["grouppassword"]);
+
+my_bookings.php:18 - Unescaped user input detected
+  Code: if ($_POST["action"] == "approve" && $_POST["booking_id"]) {
+
+my_bookings.php:19 - Unescaped user input detected
+  Code: $result = update_booking_status($_POST["booking_id"], 2, $_SESSION["member_ID"]);
+
+my_bookings.php:27 - Unescaped user input detected
+  Code: if ($_POST["action"] == "decline" && $_POST["booking_id"]) {
+
+my_bookings.php:28 - Unescaped user input detected
+  Code: $result = update_booking_status($_POST["booking_id"], 5, $_SESSION["member_ID"]);
+
+my_bookings.php:36 - Unescaped user input detected
+  Code: if ($_POST["action"] == "mark_returned" && $_POST["booking_id"]) {
+
+my_bookings.php:38 - Unescaped user input detected
+  Code: WHERE booking_ID = ".qq($_POST["booking_id"])."
+
+notifications.php:24 - Unescaped user input detected
+  Code: if ($_POST["mark_read"] && $_POST["notification_id"]) {
+
+notifications.php:25 - Unescaped user input detected
+  Code: mark_notification_read($_POST["notification_id"], $_SESSION["member_ID"]);
+
+notifications.php:30 - Unescaped user input detected
+  Code: if ($_POST["mark_all_read"]) {
+
+notifications.php:99 - Unescaped user input detected
+  Code: if ($_POST["update_preferences"]) {
+
+notifications.php:100 - Unescaped user input detected
+  Code: $email_notifications = $_POST["email_notifications"] ? 1 : 0;
+
+notifications.php:101 - Unescaped user input detected
+  Code: $sms_notifications = $_POST["sms_notifications"] ? 1 : 0;
+
+notifications.php:102 - Unescaped user input detected
+  Code: $phone_number = $_POST["phone_number"];
+
+notifications.php:103 - Unescaped user input detected
+  Code: $notification_frequency = $_POST["notification_frequency"];
+
+register.php:30 - Unescaped user input detected
+  Code: $pagespass = $_POST['pagespass'];
+
+register.php:31 - Unescaped user input detected
+  Code: //$member_email = $_POST['email'];
+
+register.php:36 - Unescaped user input detected
+  Code: if ($_POST['submitcount']=="Submit" ) {
+
+register.php:38 - Unescaped user input detected
+  Code: //echo '<BR>'.$_POST['submitcount'];
+
+register.php:39 - Unescaped user input detected
+  Code: //echo '<BR>'.$_POST['rowcount'];
+
+register.php:43 - Unescaped user input detected
+  Code: for ($i=1; $i<=$_POST['rowcount']; $i++) {
+
+register.php:45 - Unescaped user input detected
+  Code: $query = "insert into member_communities ( member_ID, community_ID ) values ( '".$_SESSION['member_ID']."' , '".$_POST[$varname]."' )";
+
+register.php:51 - Unescaped user input detected
+  Code: if ($_POST['submit2'] == "Register") {
+
+register.php:55 - Unescaped user input detected
+  Code: $query5 = "select * from members where member_email = ".qq($_POST['email']);
+
+register.php:64 - Unescaped user input detected
+  Code: $temp2 = $_POST['pagespass'];
+
+register.php:65 - Unescaped user input detected
+  Code: $query = "INSERT INTO members (`member_fname`, `member_email`, `member_password`, `member_lname`, `member_pcode`) VALUES ('".$_POST['fname']."', '".$_POST['email']."', '".$temp2."', '".$_POST['lname']."', '".$_POST['pcode']."')";
+
+register.php:69 - Unescaped user input detected
+  Code: $_SESSION['member_email'] = $_POST['email'];
+
+register.php:72 - Unescaped user input detected
+  Code: $query3 = 'select * from members where member_email = "'.$_POST['email'].'"';
+
+register.php:77 - Unescaped user input detected
+  Code: $_SESSION['member_email'] = $_POST['email'];
+
+register.php:84 - Unescaped user input detected
+  Code: $pcode5 = substr($_POST["pcode"],0,5)."*"; $pcode6 = substr($_POST["pcode"],0,6)."*"; $pcode7 = substr($_POST["pcode"],0,7)."*"; $pcode8 = substr($_POST["pcode"],0,8);
+
+request_booking.php:26 - Unescaped user input detected
+  Code: $thing_ID = $_GET["thing_id"] ? intval($_GET["thing_id"]) : 0;
+
+request_booking.php:51 - Unescaped user input detected
+  Code: if ($_POST["submit_booking"] && !$error_message) {
+
+request_booking.php:52 - Unescaped user input detected
+  Code: $start_date = $_POST["start_date"];
+
+request_booking.php:53 - Unescaped user input detected
+  Code: $end_date = $_POST["end_date"];
+
+request_booking.php:54 - Unescaped user input detected
+  Code: $notes = $_POST["notes"];
+
+request_booking.php:111 - Unescaped user input detected
+  Code: echo cell2("Start Date:", '<input type="date" name="start_date" value="'.$_POST['start_date'].'" class="date-input" min="'.date('Y-m-d').'" required>');
+
+request_booking.php:112 - Unescaped user input detected
+  Code: echo cell2("End Date:", '<input type="date" name="end_date" value="'.$_POST['end_date'].'" class="date-input" min="'.date('Y-m-d').'" required>');
+
+request_booking.php:115 - Unescaped user input detected
+  Code: echo '<tr><td width="200">Special requests or notes:</td><td><textarea name="notes" class="notes-input" placeholder="Any special requests, pickup arrangements, etc.">'.$_POST['notes'].'</textarea></td></tr>';
+
+search.php:21 - Unescaped user input detected
+  Code: echo cell2("search keywords",'<input type="text" name="keywords" value="'.$_POST["keywords"].'">');
+
+search.php:23 - Unescaped user input detected
+  Code: if ( $_POST["item_type"]==1){
+
+search.php:25 - Unescaped user input detected
+  Code: } elseif ($_POST["item_type"]==2) {
+
+search.php:37 - Unescaped user input detected
+  Code: if (isset($_POST["item_ID"])) {
+
+search.php:39 - Unescaped user input detected
+  Code: $query = 'select * from things where thing_ID = '.qq($_POST["item_ID"]);
+
+search.php:56 - Unescaped user input detected
+  Code: if (isset($_POST["search"])) {
+
+search.php:58 - Unescaped user input detected
+  Code: if ( $_POST["item_type"]==1){
+
+search.php:60 - Unescaped user input detected
+  Code: } elseif ($_POST["item_type"]==2) {
+
+search.php:72 - Unescaped user input detected
+  Code: and thing_title like "%'.$_POST["keywords"].'%" '.$temp_type.'
+
+search.php:84 - Unescaped user input detected
+  Code: $button3 = '<input type="hidden" name="keywords" value="'.$_POST["keywords"] .'">';
+
+search.php:85 - Unescaped user input detected
+  Code: $button4 = '<input type="hidden" name="item_type" value="'.$_POST["item_type"] .'">';
+
+search.php:86 - Unescaped user input detected
+  Code: $button5 = '<input type="hidden" name="search" value="'.$_POST["search"] .'">';
+
+## UNDEFINED_FUNCTION ISSUES (309)
+account.php:20 - Undefined function 'qq'
+  Code: $query6 = "SELECT * FROM members WHERE member_ID = ".qq($_SESSION['member_ID']);
+
+account.php:21 - Undefined function 'query'
+  Code: $result6 = $mysqli -> query($query6);
+
+account.php:22 - Undefined function 'fetch_assoc'
+  Code: $member = $result6 -> fetch_assoc();
+
+account.php:32 - Undefined function 'communities'
+  Code: $query = 'insert into communities ( member_ID , community_name , password ) values ( '.$_SESSION['member_ID'].' , '.qq($_POST["groupname"]).' , '.qq($_POST["grouppassword"]).' )';
+
+account.php:32 - Undefined function 'values'
+  Code: $query = 'insert into communities ( member_ID , community_name , password ) values ( '.$_SESSION['member_ID'].' , '.qq($_POST["groupname"]).' , '.qq($_POST["grouppassword"]).' )';
+
+account.php:32 - Undefined function 'qq'
+  Code: $query = 'insert into communities ( member_ID , community_name , password ) values ( '.$_SESSION['member_ID'].' , '.qq($_POST["groupname"]).' , '.qq($_POST["grouppassword"]).' )';
+
+account.php:32 - Undefined function 'qq'
+  Code: $query = 'insert into communities ( member_ID , community_name , password ) values ( '.$_SESSION['member_ID'].' , '.qq($_POST["groupname"]).' , '.qq($_POST["grouppassword"]).' )';
+
+account.php:33 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+account.php:36 - Undefined function 'qq'
+  Code: $query = 'select * from communities where community_name = '.qq($_POST["groupname"]).' and member_ID = '.$_SESSION["member_ID"].'';
+
+account.php:37 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+account.php:38 - Undefined function 'fetch_assoc'
+  Code: $record = $result -> fetch_assoc() ;
+
+account.php:42 - Undefined function 'member_communities'
+  Code: $query = 'INSERT INTO member_communities ( member_ID , community_ID ) VALUES ( '.qq($_SESSION["member_ID"]).' , '.qq($record["community_ID"]).')';
+
+account.php:42 - Undefined function 'VALUES'
+  Code: $query = 'INSERT INTO member_communities ( member_ID , community_ID ) VALUES ( '.qq($_SESSION["member_ID"]).' , '.qq($record["community_ID"]).')';
+
+account.php:42 - Undefined function 'qq'
+  Code: $query = 'INSERT INTO member_communities ( member_ID , community_ID ) VALUES ( '.qq($_SESSION["member_ID"]).' , '.qq($record["community_ID"]).')';
+
+account.php:42 - Undefined function 'qq'
+  Code: $query = 'INSERT INTO member_communities ( member_ID , community_ID ) VALUES ( '.qq($_SESSION["member_ID"]).' , '.qq($record["community_ID"]).')';
+
+account.php:43 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+account.php:50 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+account.php:72 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+account.php:73 - Undefined function 'mysqli_num_rows'
+  Code: $numrows = mysqli_num_rows($result);
+
+account.php:78 - Undefined function 'member_communities'
+  Code: $query = "insert into member_communities ( member_ID, community_ID ) values ( '".$_SESSION['member_ID']."' , '".$_POST[$varname]."' )";
+
+account.php:78 - Undefined function 'values'
+  Code: $query = "insert into member_communities ( member_ID, community_ID ) values ( '".$_SESSION['member_ID']."' , '".$_POST[$varname]."' )";
+
+account.php:79 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+account.php:83 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+account.php:92 - Undefined function 'qq'
+  Code: 'member_fname = '.qq($_POST['fname']).' , '.
+
+account.php:93 - Undefined function 'qq'
+  Code: 'member_lname = '.qq($_POST['lname']).' , '.
+
+account.php:94 - Undefined function 'qq'
+  Code: 'member_email = '.qq($_POST['email']).' , '.
+
+account.php:95 - Undefined function 'qq'
+  Code: 'member_password = '.qq($_POST['pagespass']).' , '.
+
+account.php:96 - Undefined function 'qq'
+  Code: 'member_pcode = '.qq($_POST['pcode']).' '.
+
+account.php:97 - Undefined function 'qq'
+  Code: 'where member_ID = '.qq($_SESSION['member_ID']);
+
+account.php:98 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+account.php:104 - Undefined function 'qq'
+  Code: $query6 = "SELECT * FROM members WHERE member_ID = ".qq($_SESSION['member_ID']);
+
+account.php:105 - Undefined function 'query'
+  Code: $result6 = $mysqli -> query($query6);
+
+account.php:106 - Undefined function 'fetch_assoc'
+  Code: $member = $result6 -> fetch_assoc();
+
+account.php:115 - Undefined function 'cell2'
+  Code: echo cell2("Enter your first name:",'<INPUT  NAME="fname" TYPE="text" SIZE=20 value ='.qq($member["member_fname"]    ).'>');
+
+account.php:115 - Undefined function 'qq'
+  Code: echo cell2("Enter your first name:",'<INPUT  NAME="fname" TYPE="text" SIZE=20 value ='.qq($member["member_fname"]    ).'>');
+
+account.php:116 - Undefined function 'cell2'
+  Code: echo cell2("Enter your last name: ", '<INPUT  NAME="lname" TYPE="text" SIZE=20 value ='.qq($member["member_lname"]   ).'>');
+
+account.php:116 - Undefined function 'qq'
+  Code: echo cell2("Enter your last name: ", '<INPUT  NAME="lname" TYPE="text" SIZE=20 value ='.qq($member["member_lname"]   ).'>');
+
+account.php:117 - Undefined function 'cell2'
+  Code: echo cell2("Enter your postcode:  ",'<INPUT  NAME="pcode"     TYPE="text" SIZE=20 value ='.qq($member["member_pcode"]    ).'>');
+
+account.php:117 - Undefined function 'qq'
+  Code: echo cell2("Enter your postcode:  ",'<INPUT  NAME="pcode"     TYPE="text" SIZE=20 value ='.qq($member["member_pcode"]    ).'>');
+
+account.php:118 - Undefined function 'cell2'
+  Code: echo cell2("Enter your email:     ",'<INPUT  NAME="email"     TYPE="text" SIZE=20 value ='.qq($member["member_email"]    ).'>');
+
+account.php:118 - Undefined function 'qq'
+  Code: echo cell2("Enter your email:     ",'<INPUT  NAME="email"     TYPE="text" SIZE=20 value ='.qq($member["member_email"]    ).'>');
+
+account.php:119 - Undefined function 'cell2'
+  Code: echo cell2("Create your password: ",'<INPUT  NAME="pagespass" TYPE="text" SIZE=20 value ='.qq($member["member_password"]).'>');
+
+account.php:119 - Undefined function 'qq'
+  Code: echo cell2("Create your password: ",'<INPUT  NAME="pagespass" TYPE="text" SIZE=20 value ='.qq($member["member_password"]).'>');
+
+account.php:120 - Undefined function 'cell2'
+  Code: echo cell2(" ",'<INPUT TYPE="SUBMIT" VALUE="Re-save" name="submit2">');
+
+account.php:138 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+account.php:139 - Undefined function 'mysqli_num_rows'
+  Code: $row_cnt =mysqli_num_rows($result);
+
+account.php:145 - Undefined function 'fetch_assoc'
+  Code: $record = $result -> fetch_assoc();
+
+account.php:147 - Undefined function 'query'
+  Code: $result2 = $mysqli -> query($query2) ;      $record2 = $result2 -> fetch_assoc() ;
+
+account.php:147 - Undefined function 'fetch_assoc'
+  Code: $result2 = $mysqli -> query($query2) ;      $record2 = $result2 -> fetch_assoc() ;
+
+account.php:151 - Undefined function 'qq'
+  Code: $query6 = 'select * from member_communities where member_ID = '.qq($_SESSION["member_ID"]).' and community_ID = '.qq($record["community_ID"]);
+
+account.php:151 - Undefined function 'qq'
+  Code: $query6 = 'select * from member_communities where member_ID = '.qq($_SESSION["member_ID"]).' and community_ID = '.qq($record["community_ID"]);
+
+account.php:152 - Undefined function 'query'
+  Code: $result6 = $mysqli -> query($query6);
+
+account.php:153 - Undefined function 'mysqli_num_rows'
+  Code: $row6 = mysqli_num_rows($result6);
+
+account.php:158 - Undefined function 'qq'
+  Code: $temp2 = qq($record2["community_name"]);
+
+account.php:160 - Undefined function 'cell3'
+  Code: echo cell3("",$temp2,$temp1);
+
+account.php:162 - Undefined function 'cell2'
+  Code: echo cell2('<input type="hidden" name="rowcount" value="'.$row_cnt.'">','<input name="submitcount" type="submit" value="Submit">');
+
+account.php:171 - Undefined function 'cell2'
+  Code: echo cell2("Group name",'<input type="text" name="groupname">');
+
+account.php:172 - Undefined function 'cell2'
+  Code: echo cell2("Group password",'<input type="text" name="grouppassword">');
+
+account.php:173 - Undefined function 'cell2'
+  Code: echo cell2('','<input type="submit" name="makegroup" value="Create group" >');
+
+account.php:182 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+account.php:184 - Undefined function 'fetch_assoc'
+  Code: while ($record = $result -> fetch_assoc() ) {
+
+account.php:187 - Undefined function 'cell3'
+  Code: echo cell3($record["community_name"],$record["password"],$del1);
+
+add_listing.php:26 - Undefined function 'things'
+  Code: $query = " INSERT INTO things (thing_title, thing_price, thing_type, thing_ratio, thing_description, thing_member_ID,  thing_image) ".
+
+add_listing.php:27 - Undefined function 'VALUES'
+  Code: " VALUES ( ".
+
+add_listing.php:28 - Undefined function 'qq'
+  Code: qq($_POST["thing_title"]).", ".
+
+add_listing.php:29 - Undefined function 'qq'
+  Code: qq($_POST["thing_price"]).", ".
+
+add_listing.php:30 - Undefined function 'qq'
+  Code: qq($_POST["thing_type"]).", ".
+
+add_listing.php:31 - Undefined function 'qq'
+  Code: qq($_POST["thing_ratio"]).", ".
+
+add_listing.php:32 - Undefined function 'qq'
+  Code: qq($_POST["thing_description"]).", ".
+
+add_listing.php:33 - Undefined function 'qq'
+  Code: qq($_SESSION["member_ID"]).", ".
+
+add_listing.php:34 - Undefined function 'qq'
+  Code: qq($_POST["thing_image"])." )";
+
+add_listing.php:36 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+add_listing.php:39 - Undefined function 'query'
+  Code: $result2 = $mysqli -> query($query2); $record2 = $result2 -> fetch_assoc() ;
+
+add_listing.php:39 - Undefined function 'fetch_assoc'
+  Code: $result2 = $mysqli -> query($query2); $record2 = $result2 -> fetch_assoc() ;
+
+add_listing.php:45 - Undefined function 'qq'
+  Code: " thing_description = ".qq($_POST["thing_description"])." ,".
+
+add_listing.php:46 - Undefined function 'qq'
+  Code: " thing_price       = ".qq($_POST["thing_price"])." ,".
+
+add_listing.php:47 - Undefined function 'qq'
+  Code: " thing_type        = ".qq($_POST["thing_type"])." ,".
+
+add_listing.php:48 - Undefined function 'qq'
+  Code: " thing_ratio       = ".qq($_POST["thing_ratio"])." ,".
+
+add_listing.php:49 - Undefined function 'qq'
+  Code: " thing_title       = ".qq($_POST["thing_title"])." ".
+
+add_listing.php:50 - Undefined function 'qq'
+  Code: " where thing_ID = ".qq($this_thing_ID)." ";
+
+add_listing.php:52 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+add_listing.php:63 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+add_listing.php:69 - Undefined function 'thing_community'
+  Code: $query = 'INSERT INTO thing_community ( thing_ID , community_ID ) VALUES ('.$this_thing_ID.' , '.$temp2.' )';
+
+add_listing.php:69 - Undefined function 'VALUES'
+  Code: $query = 'INSERT INTO thing_community ( thing_ID , community_ID ) VALUES ('.$this_thing_ID.' , '.$temp2.' )';
+
+add_listing.php:70 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+add_listing.php:78 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+add_listing.php:79 - Undefined function 'fetch_assoc'
+  Code: $record = $result -> fetch_assoc() ;
+
+add_listing.php:82 - Undefined function 'query'
+  Code: $resultcom = $mysqli -> query($query);
+
+add_listing.php:83 - Undefined function 'fetch_assoc'
+  Code: $recordcom = $result -> fetch_assoc() ;
+
+add_listing.php:88 - Undefined function 'elseif'
+  Code: } elseif ($this_thing_ID>0) {
+
+add_listing.php:92 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+add_listing.php:93 - Undefined function 'fetch_assoc'
+  Code: $record = $result -> fetch_assoc() ;
+
+add_listing.php:101 - Undefined function 'elseif'
+  Code: } elseif ( isset($_POST["item_delete"]) ) {
+
+add_listing.php:103 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+add_listing.php:127 - Undefined function 'cell2'
+  Code: echo cell2("Item title:",' <INPUT  NAME="thing_title" TYPE="text" SIZE=40 value="'.$record["thing_title"].'">');
+
+add_listing.php:128 - Undefined function 'cell2'
+  Code: echo cell2("Full description:",'<INPUT  NAME="thing_description" TYPE="text" SIZE=40 value="'.$record["thing_description"].'">');
+
+add_listing.php:132 - Undefined function 'query'
+  Code: $result3 = $mysqli -> query($query);
+
+add_listing.php:135 - Undefined function 'fetch_assoc'
+  Code: while ($record3 = $result3 -> fetch_assoc() ) {
+
+add_listing.php:139 - Undefined function 'cell2'
+  Code: echo cell2("","$temp");
+
+add_listing.php:142 - Undefined function 'cell2'
+  Code: echo cell2("Price:",'£<input type="text" name="thing_price" value="'.$record["thing_price"].'">.00');
+
+add_listing.php:146 - Undefined function 'elseif'
+  Code: elseif ( $record["thing_ratio"]==50  ) { $ch2 = " checked "; }
+
+add_listing.php:147 - Undefined function 'elseif'
+  Code: elseif ( $record["thing_ratio"]==75  ) { $ch3 = " checked "; }
+
+add_listing.php:148 - Undefined function 'elseif'
+  Code: elseif ( $record["thing_ratio"]==100 ) { $ch4 = " checked "; }
+
+add_listing.php:157 - Undefined function 'cell2'
+  Code: echo cell2("% to the community fund:",$q_all);
+
+add_listing.php:175 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+add_listing.php:176 - Undefined function 'mysqli_num_rows'
+  Code: $row_cnt =mysqli_num_rows($result);
+
+add_listing.php:178 - Undefined function 'fetch_assoc'
+  Code: while ($record = $result -> fetch_assoc() ) {
+
+add_listing.php:189 - Undefined function 'query'
+  Code: $resultcom = $mysqli -> query($querycom);
+
+add_listing.php:190 - Undefined function 'fetch_assoc'
+  Code: while ( $recordcom = $resultcom -> fetch_assoc()  ) {
+
+add_listing.php:198 - Undefined function 'query'
+  Code: $result2 = $mysqli -> query($query2);
+
+add_listing.php:199 - Undefined function 'fetch_assoc'
+  Code: $record2 = $result2 -> fetch_assoc() ;
+
+add_listing.php:200 - Undefined function 'cell2'
+  Code: echo cell2("Make visible here",'<input type="checkbox" name="comm'.$i.'" '.$ch5.' value="'.$record["community_ID"].'">'.$record2["community_name"]);
+
+add_listing.php:202 - Undefined function 'cell2'
+  Code: echo cell2("",'<input type="hidden" name="num_comms" value="'.$i.'">');
+
+add_listing.php:228 - Undefined function 'qq'
+  Code: $query3 = "select * from things where thing_member_ID = ".qq($_SESSION["member_ID"]);
+
+add_listing.php:230 - Undefined function 'query'
+  Code: $result3 = $mysqli -> query($query3);
+
+add_listing.php:232 - Undefined function 'cell6'
+  Code: echo cell6("Title","Desc","Price","term","CF","Edit");
+
+add_listing.php:234 - Undefined function 'fetch_assoc'
+  Code: while ( $record3 = $result3 -> fetch_assoc()  ) {
+
+add_listing.php:243 - Undefined function 'cell6'
+  Code: echo cell6(
+
+create_private.php:31 - Undefined function 'qq'
+  Code: echo $query = "SELECT * FROM member_communities WHERE member_ID = ".qq($_SESSION["member_ID"]);
+
+create_private.php:34 - Undefined function 'query'
+  Code: $result =  $result = $mysqli -> query($query);
+
+create_private.php:35 - Undefined function 'mysqli_num_rows'
+  Code: $rowcount=mysqli_num_rows($result);
+
+create_private.php:41 - Undefined function 'fetch_assoc'
+  Code: while ($record = $result -> fetch_assoc() ) {
+
+create_private.php:42 - Undefined function 'qq'
+  Code: echo $query2 = "SELECT * FROM `communities` WHERE community_ID = ".qq($record["community_ID"]);
+
+create_private.php:64 - Undefined function 'things'
+  Code: $query = " INSERT INTO things (thing_title, thing_price, thing_type, thing_ratio, thing_description, thing_member_ID,  thing_image) ".
+
+create_private.php:65 - Undefined function 'VALUES'
+  Code: " VALUES ( ".
+
+create_private.php:66 - Undefined function 'qq'
+  Code: qq($_POST["thing_title"]).", ".
+
+create_private.php:67 - Undefined function 'qq'
+  Code: qq($_POST["thing_price"]).", ".
+
+create_private.php:68 - Undefined function 'qq'
+  Code: qq($_POST["thing_type"]).", ".
+
+create_private.php:69 - Undefined function 'qq'
+  Code: qq($_POST["thing_ratio"]).", ".
+
+create_private.php:70 - Undefined function 'qq'
+  Code: qq($_POST["thing_description"]).", ".
+
+create_private.php:71 - Undefined function 'qq'
+  Code: qq($_SESSION["member_ID"]).", ".
+
+create_private.php:72 - Undefined function 'qq'
+  Code: qq($_POST["thing_image"])." )";
+
+create_private.php:74 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+create_private.php:77 - Undefined function 'query'
+  Code: $result2 = $mysqli -> query($query2); $record2 = $result2 -> fetch_assoc() ;
+
+create_private.php:77 - Undefined function 'fetch_assoc'
+  Code: $result2 = $mysqli -> query($query2); $record2 = $result2 -> fetch_assoc() ;
+
+create_private.php:83 - Undefined function 'qq'
+  Code: " thing_description = ".qq($_POST["thing_description"])." ,".
+
+create_private.php:84 - Undefined function 'qq'
+  Code: " thing_price       = ".qq($_POST["thing_price"])." ,".
+
+create_private.php:85 - Undefined function 'qq'
+  Code: " thing_type        = ".qq($_POST["thing_type"])." ,".
+
+create_private.php:86 - Undefined function 'qq'
+  Code: " thing_ratio       = ".qq($_POST["thing_ratio"])." ,".
+
+create_private.php:87 - Undefined function 'qq'
+  Code: " thing_title       = ".qq($_POST["thing_title"])." ".
+
+create_private.php:88 - Undefined function 'qq'
+  Code: " where thing_ID = ".qq($this_thing_ID)." ";
+
+create_private.php:90 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+create_private.php:97 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+create_private.php:98 - Undefined function 'fetch_assoc'
+  Code: $record = $result -> fetch_assoc() ;
+
+create_private.php:99 - Undefined function 'elseif'
+  Code: } elseif ($this_thing_ID>0) {
+
+create_private.php:102 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+create_private.php:103 - Undefined function 'fetch_assoc'
+  Code: $record = $result -> fetch_assoc() ;
+
+create_private.php:208 - Undefined function 'qq'
+  Code: $query3 = "select * from things where thing_member_ID = ".qq($_SESSION["member_ID"]);
+
+create_private.php:210 - Undefined function 'query'
+  Code: $result3 = $mysqli -> query($query3);
+
+create_private.php:214 - Undefined function 'fetch_assoc'
+  Code: while ( $record3 = $result3 -> fetch_assoc()  ) {
+
+cron_notifications.php:23 - Undefined function 'process_pending_notifications'
+  Code: $results = process_pending_notifications(100);
+
+cron_notifications.php:28 - Undefined function 'get_due_returns'
+  Code: $due_returns = get_due_returns(1); // Items due tomorrow
+
+cron_notifications.php:33 - Undefined function 'qq'
+  Code: WHERE member_ID = ".qq($return['member_ID'])."
+
+cron_notifications.php:36 - Undefined function 'DATE_SUB'
+  Code: AND notification_created > DATE_SUB(NOW(), INTERVAL 2 DAY)";
+
+cron_notifications.php:36 - Undefined function 'NOW'
+  Code: AND notification_created > DATE_SUB(NOW(), INTERVAL 2 DAY)";
+
+cron_notifications.php:38 - Undefined function 'query'
+  Code: $check_result = $mysqli->query($check_query);
+
+cron_notifications.php:39 - Undefined function 'fetch_assoc'
+  Code: $check_row = $check_result->fetch_assoc();
+
+cron_notifications.php:43 - Undefined function 'create_notification'
+  Code: $notification_id = create_notification(
+
+cron_notifications.php:47 - Undefined function 'format_display_date'
+  Code: 'Don\'t forget to return '.$return['thing_title'].' to '.$return['owner_fname'].' by '.format_display_date($return['booking_end_date']),
+
+cron_notifications.php:63 - Undefined function 'CURDATE'
+  Code: AND booking_end_date < CURDATE() - INTERVAL 7 DAY";
+
+cron_notifications.php:64 - Undefined function 'query'
+  Code: $overdue_result = $mysqli->query($overdue_query);
+
+cron_notifications.php:73 - Undefined function 'DATE_SUB'
+  Code: AND notification_read < DATE_SUB(NOW(), INTERVAL 30 DAY)";
+
+cron_notifications.php:73 - Undefined function 'NOW'
+  Code: AND notification_read < DATE_SUB(NOW(), INTERVAL 30 DAY)";
+
+cron_notifications.php:74 - Undefined function 'query'
+  Code: $cleanup_result = $mysqli->query($cleanup_query);
+
+cron_notifications.php:89 - Undefined function 'close'
+  Code: $mysqli->close();
+
+joingroup.php:17 - Undefined function 'qq'
+  Code: $query6 = "SELECT * FROM members WHERE member_ID = ".qq($_SESSION['member_ID']);
+
+joingroup.php:18 - Undefined function 'query'
+  Code: $result6 = $mysqli -> query($query6);
+
+joingroup.php:19 - Undefined function 'fetch_assoc'
+  Code: $member = $result6 -> fetch_assoc();
+
+joingroup.php:27 - Undefined function 'qq'
+  Code: $query = 'select * from members where member_email = '.qq($_POST["groupemail"]);
+
+joingroup.php:28 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+joingroup.php:29 - Undefined function 'fetch_assoc'
+  Code: $record = $result -> fetch_assoc();
+
+joingroup.php:36 - Undefined function 'qq'
+  Code: $query = 'select * from communities where member_ID = '.$record["member_ID"].' and password = '.qq($_POST["grouppassword"]);
+
+joingroup.php:37 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+joingroup.php:38 - Undefined function 'fetch_assoc'
+  Code: $record = $result -> fetch_assoc();
+
+joingroup.php:43 - Undefined function 'member_communities'
+  Code: $query = 'INSERT INTO member_communities (member_ID, community_ID) VALUES ( '.qq($_SESSION['member_ID']).' , '.qq($groupID).' )';
+
+joingroup.php:43 - Undefined function 'VALUES'
+  Code: $query = 'INSERT INTO member_communities (member_ID, community_ID) VALUES ( '.qq($_SESSION['member_ID']).' , '.qq($groupID).' )';
+
+joingroup.php:43 - Undefined function 'qq'
+  Code: $query = 'INSERT INTO member_communities (member_ID, community_ID) VALUES ( '.qq($_SESSION['member_ID']).' , '.qq($groupID).' )';
+
+joingroup.php:43 - Undefined function 'qq'
+  Code: $query = 'INSERT INTO member_communities (member_ID, community_ID) VALUES ( '.qq($_SESSION['member_ID']).' , '.qq($groupID).' )';
+
+joingroup.php:44 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+joingroup.php:50 - Undefined function 'cell2'
+  Code: echo cell2("Group email",'<input type="text" name="groupemail">');
+
+joingroup.php:51 - Undefined function 'cell2'
+  Code: echo cell2("Password",'<input type="text" name="grouppassword">');
+
+joingroup.php:52 - Undefined function 'cell2'
+  Code: echo cell2("",'<input type="submit" name="joingroup" value="Join group">');
+
+joingroup.php:60 - Undefined function 'qq'
+  Code: $query = 'select * from member_communities where member_ID = '.qq($_SESSION['member_ID']);
+
+joingroup.php:61 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+joingroup.php:63 - Undefined function 'fetch_assoc'
+  Code: while ( $record = $result -> fetch_assoc() ) {
+
+joingroup.php:65 - Undefined function 'qq'
+  Code: $query2='select * from communities where community_ID = '.qq($record["community_ID"]);
+
+joingroup.php:66 - Undefined function 'query'
+  Code: $result2 = $mysqli -> query($query2);
+
+joingroup.php:67 - Undefined function 'fetch_assoc'
+  Code: $record2 = $result2 -> fetch_assoc();
+
+joingroup.php:69 - Undefined function 'cell2'
+  Code: echo cell2($record2["community_name"],"");
+
+my_bookings.php:19 - Undefined function 'update_booking_status'
+  Code: $result = update_booking_status($_POST["booking_id"], 2, $_SESSION["member_ID"]);
+
+my_bookings.php:28 - Undefined function 'update_booking_status'
+  Code: $result = update_booking_status($_POST["booking_id"], 5, $_SESSION["member_ID"]);
+
+my_bookings.php:37 - Undefined function 'NOW'
+  Code: $query = "UPDATE bookings SET booking_status = 4, booking_returned_date = NOW()
+
+my_bookings.php:38 - Undefined function 'qq'
+  Code: WHERE booking_ID = ".qq($_POST["booking_id"])."
+
+my_bookings.php:39 - Undefined function 'qq'
+  Code: AND owner_ID = ".qq($_SESSION["member_ID"]);
+
+my_bookings.php:40 - Undefined function 'query'
+  Code: $result = $mysqli->query($query);
+
+my_bookings.php:50 - Undefined function 'get_member_bookings'
+  Code: $my_requests = get_member_bookings($_SESSION["member_ID"], false);
+
+my_bookings.php:65 - Undefined function 'get_booking_status_text'
+  Code: $status_text = get_booking_status_text($booking['booking_status']);
+
+my_bookings.php:66 - Undefined function 'get_booking_status_color'
+  Code: $status_color = get_booking_status_color($booking['booking_status']);
+
+my_bookings.php:71 - Undefined function 'format_display_date'
+  Code: echo '<td>'.format_display_date($booking['booking_start_date']).' to '.format_display_date($booking['booking_end_date']).'</td>';
+
+my_bookings.php:71 - Undefined function 'format_display_date'
+  Code: echo '<td>'.format_display_date($booking['booking_start_date']).' to '.format_display_date($booking['booking_end_date']).'</td>';
+
+my_bookings.php:83 - Undefined function 'get_member_bookings'
+  Code: $owner_requests = get_member_bookings($_SESSION["member_ID"], true);
+
+my_bookings.php:99 - Undefined function 'get_booking_status_text'
+  Code: $status_text = get_booking_status_text($booking['booking_status']);
+
+my_bookings.php:100 - Undefined function 'get_booking_status_color'
+  Code: $status_color = get_booking_status_color($booking['booking_status']);
+
+my_bookings.php:105 - Undefined function 'format_display_date'
+  Code: echo '<td>'.format_display_date($booking['booking_start_date']).' to '.format_display_date($booking['booking_end_date']).'</td>';
+
+my_bookings.php:105 - Undefined function 'format_display_date'
+  Code: echo '<td>'.format_display_date($booking['booking_start_date']).' to '.format_display_date($booking['booking_end_date']).'</td>';
+
+my_bookings.php:124 - Undefined function 'elseif'
+  Code: } elseif ($booking['booking_status'] == 3) {
+
+my_bookings.php:156 - Undefined function 'cell2'
+  Code: echo cell2("Requests I've made:", $total_requests);
+
+my_bookings.php:157 - Undefined function 'cell2'
+  Code: echo cell2("Requests for my items:", $total_owner_requests);
+
+my_bookings.php:158 - Undefined function 'cell2'
+  Code: echo cell2("My pending requests:", $pending_requests);
+
+my_bookings.php:159 - Undefined function 'cell2'
+  Code: echo cell2("Items I'm currently borrowing:", $active_loans);
+
+notifications.php:25 - Undefined function 'mark_notification_read'
+  Code: mark_notification_read($_POST["notification_id"], $_SESSION["member_ID"]);
+
+notifications.php:32 - Undefined function 'NOW'
+  Code: SET notification_status = 4, notification_read = NOW()
+
+notifications.php:33 - Undefined function 'qq'
+  Code: WHERE member_ID = ".qq($_SESSION["member_ID"])."
+
+notifications.php:35 - Undefined function 'query'
+  Code: $mysqli->query($query);
+
+notifications.php:42 - Undefined function 'get_unread_notification_count'
+  Code: $unread_count = get_unread_notification_count($_SESSION["member_ID"]);
+
+notifications.php:43 - Undefined function 'get_member_notifications'
+  Code: $all_notifications = get_member_notifications($_SESSION["member_ID"], 20, false);
+
+notifications.php:62 - Undefined function 'get_notification_type_info'
+  Code: $type_info = get_notification_type_info($notification['notification_type']);
+
+notifications.php:71 - Undefined function 'time_ago'
+  Code: echo '<small style="color: #666;">'.time_ago($notification['notification_created']).'</small>';
+
+notifications.php:94 - Undefined function 'qq'
+  Code: FROM members WHERE member_ID = ".qq($_SESSION["member_ID"]);
+
+notifications.php:95 - Undefined function 'query'
+  Code: $result = $mysqli->query($query);
+
+notifications.php:96 - Undefined function 'fetch_assoc'
+  Code: $prefs = $result->fetch_assoc();
+
+notifications.php:106 - Undefined function 'qq'
+  Code: SET email_notifications = ".qq($email_notifications).",
+
+notifications.php:107 - Undefined function 'qq'
+  Code: sms_notifications = ".qq($sms_notifications).",
+
+notifications.php:108 - Undefined function 'qq'
+  Code: phone_number = ".qq($phone_number).",
+
+notifications.php:109 - Undefined function 'qq'
+  Code: notification_frequency = ".qq($notification_frequency)."
+
+notifications.php:110 - Undefined function 'qq'
+  Code: WHERE member_ID = ".qq($_SESSION["member_ID"]);
+
+notifications.php:112 - Undefined function 'query'
+  Code: if ($mysqli->query($query)) {
+
+notifications.php:129 - Undefined function 'cell2'
+  Code: echo cell2("Email Notifications:", '<input type="checkbox" name="email_notifications" value="1" '.$email_checked.'> Receive notifications by email');
+
+notifications.php:133 - Undefined function 'cell2'
+  Code: echo cell2("SMS Notifications:", '<input type="checkbox" name="sms_notifications" value="1" '.$sms_checked.'> Receive urgent notifications by SMS <em>(coming soon)</em>');
+
+notifications.php:136 - Undefined function 'cell2'
+  Code: echo cell2("Mobile Number:", '<input type="tel" name="phone_number" value="'.$prefs['phone_number'].'" placeholder="+44 7xxx xxx xxx"> For SMS notifications');
+
+notifications.php:139 - Undefined function 'array'
+  Code: $frequency_options = array(
+
+notifications.php:140 - Undefined function 'Immediate'
+  Code: 'immediate' => 'Immediate (as they happen)',
+
+notifications.php:141 - Undefined function 'digest'
+  Code: 'daily' => 'Daily digest (once per day)',
+
+notifications.php:142 - Undefined function 'digest'
+  Code: 'weekly' => 'Weekly digest (once per week)'
+
+notifications.php:152 - Undefined function 'cell2'
+  Code: echo cell2("Email Frequency:", $frequency_select);
+
+notifications.php:154 - Undefined function 'cell2'
+  Code: echo cell2("", '<input type="submit" name="update_preferences" value="Update Preferences" style="background-color: #008000; color: white; padding: 8px 16px; border: none;">');
+
+register.php:19 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+register.php:20 - Undefined function 'fetch_assoc'
+  Code: $member = $result -> fetch_assoc();
+
+register.php:45 - Undefined function 'member_communities'
+  Code: $query = "insert into member_communities ( member_ID, community_ID ) values ( '".$_SESSION['member_ID']."' , '".$_POST[$varname]."' )";
+
+register.php:45 - Undefined function 'values'
+  Code: $query = "insert into member_communities ( member_ID, community_ID ) values ( '".$_SESSION['member_ID']."' , '".$_POST[$varname]."' )";
+
+register.php:46 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+register.php:55 - Undefined function 'qq'
+  Code: $query5 = "select * from members where member_email = ".qq($_POST['email']);
+
+register.php:56 - Undefined function 'query'
+  Code: $result5 = $mysqli -> query($query5);
+
+register.php:57 - Undefined function 'mysqli_num_rows'
+  Code: $numrows =mysqli_num_rows($result5);
+
+register.php:65 - Undefined function 'members'
+  Code: $query = "INSERT INTO members (`member_fname`, `member_email`, `member_password`, `member_lname`, `member_pcode`) VALUES ('".$_POST['fname']."', '".$_POST['email']."', '".$temp2."', '".$_POST['lname']."', '".$_POST['pcode']."')";
+
+register.php:65 - Undefined function 'VALUES'
+  Code: $query = "INSERT INTO members (`member_fname`, `member_email`, `member_password`, `member_lname`, `member_pcode`) VALUES ('".$_POST['fname']."', '".$_POST['email']."', '".$temp2."', '".$_POST['lname']."', '".$_POST['pcode']."')";
+
+register.php:67 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+register.php:73 - Undefined function 'query'
+  Code: $resulttemp = $mysqli -> query($query3);
+
+register.php:74 - Undefined function 'fetch_assoc'
+  Code: $recordtemp = $resulttemp -> fetch_assoc();
+
+register.php:88 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+register.php:100 - Undefined function 'fetch_assoc'
+  Code: $record = $result -> fetch_assoc();
+
+register.php:102 - Undefined function 'query'
+  Code: $result2 = $mysqli -> query($query2) ;
+
+register.php:103 - Undefined function 'fetch_assoc'
+  Code: $record2 = $result2 -> fetch_assoc() ;
+
+register.php:126 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query) ;
+
+register.php:127 - Undefined function 'fetch_assoc'
+  Code: while ($record = $result -> fetch_assoc() ) {
+
+register.php:130 - Undefined function 'query'
+  Code: $result2 = $mysqli -> query($query2) ;
+
+register.php:131 - Undefined function 'fetch_assoc'
+  Code: $record2 = $result2 -> fetch_assoc();
+
+request_booking.php:26 - Undefined function 'intval'
+  Code: $thing_ID = $_GET["thing_id"] ? intval($_GET["thing_id"]) : 0;
+
+request_booking.php:35 - Undefined function 'qq'
+  Code: WHERE t.thing_ID = ".qq($thing_ID);
+
+request_booking.php:36 - Undefined function 'query'
+  Code: $result = $mysqli->query($query);
+
+request_booking.php:37 - Undefined function 'fetch_assoc'
+  Code: $item = $result->fetch_assoc();
+
+request_booking.php:41 - Undefined function 'elseif'
+  Code: } elseif ($item['thing_member_ID'] == $_SESSION['member_ID']) {
+
+request_booking.php:43 - Undefined function 'elseif'
+  Code: } elseif ($item['thing_type'] != 1) {
+
+request_booking.php:59 - Undefined function 'elseif'
+  Code: } elseif (strtotime($start_date) < strtotime('today')) {
+
+request_booking.php:61 - Undefined function 'elseif'
+  Code: } elseif (strtotime($end_date) <= strtotime($start_date)) {
+
+request_booking.php:63 - Undefined function 'elseif'
+  Code: } elseif (!check_booking_availability($thing_ID, $start_date, $end_date)) {
+
+request_booking.php:63 - Undefined function 'check_booking_availability'
+  Code: } elseif (!check_booking_availability($thing_ID, $start_date, $end_date)) {
+
+request_booking.php:67 - Undefined function 'create_booking_request'
+  Code: $booking_ID = create_booking_request($thing_ID, $_SESSION["member_ID"], $start_date, $end_date, $notes);
+
+request_booking.php:94 - Undefined function 'cell2'
+  Code: echo cell2("Item:", $item['thing_title']);
+
+request_booking.php:95 - Undefined function 'cell2'
+  Code: echo cell2("Description:", $item['thing_description']);
+
+request_booking.php:96 - Undefined function 'cell2'
+  Code: echo cell2("Owner:", $item['member_fname'].' '.$item['member_lname']);
+
+request_booking.php:97 - Undefined function 'cell2'
+  Code: echo cell2("Price per day:", '£'.$item['thing_price']);
+
+request_booking.php:98 - Undefined function 'cell2'
+  Code: if ($item['thing_min_loan_days']) echo cell2("Minimum loan:", $item['thing_min_loan_days'].' days');
+
+request_booking.php:99 - Undefined function 'cell2'
+  Code: if ($item['thing_max_loan_days']) echo cell2("Maximum loan:", $item['thing_max_loan_days'].' days');
+
+request_booking.php:111 - Undefined function 'cell2'
+  Code: echo cell2("Start Date:", '<input type="date" name="start_date" value="'.$_POST['start_date'].'" class="date-input" min="'.date('Y-m-d').'" required>');
+
+request_booking.php:112 - Undefined function 'cell2'
+  Code: echo cell2("End Date:", '<input type="date" name="end_date" value="'.$_POST['end_date'].'" class="date-input" min="'.date('Y-m-d').'" required>');
+
+request_booking.php:127 - Undefined function 'generate_availability_calendar'
+  Code: $booked_dates = generate_availability_calendar($thing_ID);
+
+request_booking.php:132 - Undefined function 'array_map'
+  Code: echo '<p><strong>Booked dates:</strong> '.implode(', ', array_map('format_display_date', $booked_dates)).'</p>';
+
+request_booking.php:141 - Undefined function 'querySelector'
+  Code: var startDate = document.querySelector('input[name="start_date"]').value;
+
+request_booking.php:142 - Undefined function 'querySelector'
+  Code: var endDate = document.querySelector('input[name="end_date"]').value;
+
+request_booking.php:148 - Undefined function 'ceil'
+  Code: var days = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+
+request_booking.php:152 - Undefined function 'getElementById'
+  Code: var costDiv = document.getElementById('cost-calculation');
+
+request_booking.php:154 - Undefined function 'createElement'
+  Code: costDiv = document.createElement('div');
+
+request_booking.php:157 - Undefined function 'querySelector'
+  Code: document.querySelector('.booking-form').appendChild(costDiv);
+
+request_booking.php:157 - Undefined function 'appendChild'
+  Code: document.querySelector('.booking-form').appendChild(costDiv);
+
+request_booking.php:160 - Undefined function 'toFixed'
+  Code: '<strong>Total Cost:</strong> £' + totalCost.toFixed(2) + ' (' + days + ' × £' + pricePerDay + ')';
+
+request_booking.php:166 - Undefined function 'querySelector'
+  Code: document.querySelector('input[name="start_date"]').addEventListener('change', calculateCost);
+
+request_booking.php:166 - Undefined function 'addEventListener'
+  Code: document.querySelector('input[name="start_date"]').addEventListener('change', calculateCost);
+
+request_booking.php:167 - Undefined function 'querySelector'
+  Code: document.querySelector('input[name="end_date"]').addEventListener('change', calculateCost);
+
+request_booking.php:167 - Undefined function 'addEventListener'
+  Code: document.querySelector('input[name="end_date"]').addEventListener('change', calculateCost);
+
+search.php:21 - Undefined function 'cell2'
+  Code: echo cell2("search keywords",'<input type="text" name="keywords" value="'.$_POST["keywords"].'">');
+
+search.php:24 - Undefined function 'cell2'
+  Code: echo cell2("",'<select name="item_type"><option value="2">For sale</option><option value="1" selected>For loan</option><option value="3">Either</option></select>');
+
+search.php:25 - Undefined function 'elseif'
+  Code: } elseif ($_POST["item_type"]==2) {
+
+search.php:26 - Undefined function 'cell2'
+  Code: echo cell2("",'<select name="item_type"><option value="2" selected>For sale</option><option value="1">For loan</option><option value="3">Either</option></select>');
+
+search.php:28 - Undefined function 'cell2'
+  Code: echo cell2("",'<select name="item_type"><option value="2">For sale</option><option value="1">For loan</option><option value="3" selected>Either</option></select>');
+
+search.php:30 - Undefined function 'cell2'
+  Code: echo cell2("",'<input type="submit" name="search" value="Search">');
+
+search.php:39 - Undefined function 'qq'
+  Code: $query = 'select * from things where thing_ID = '.qq($_POST["item_ID"]);
+
+search.php:40 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+search.php:41 - Undefined function 'fetch_assoc'
+  Code: $record = $result -> fetch_assoc();
+
+search.php:45 - Undefined function 'cell2'
+  Code: echo cell2("Item",$record["thing_title"]);
+
+search.php:46 - Undefined function 'cell2'
+  Code: echo cell2("Description",$record["thing_description"]);
+
+search.php:47 - Undefined function 'cell2'
+  Code: echo cell2("type",$type);
+
+search.php:48 - Undefined function 'cell2'
+  Code: echo cell2("Price",'£'.$record["thing_price"].$term);
+
+search.php:55 - Undefined function 'cell6'
+  Code: echo cell6("<b>Short description</b>","<b>Terms</b>","<b>Price</b>","<b>Owner</b>","<b>Details</b>","<b>Actions</b>");
+
+search.php:60 - Undefined function 'elseif'
+  Code: } elseif ($_POST["item_type"]==2) {
+
+search.php:74 - Undefined function 'query'
+  Code: $result = $mysqli -> query($query);
+
+search.php:76 - Undefined function 'fetch_assoc'
+  Code: while ( $record = $result -> fetch_assoc()) {
+
+search.php:94 - Undefined function 'elseif'
+  Code: } elseif ($record["thing_type"] == 2) {
+
+search.php:97 - Undefined function 'elseif'
+  Code: } elseif ($record["thing_member_ID"] == $_SESSION["member_ID"]) {
+
+## DEFINED FUNCTIONS REGISTRY
+- calculateCost() in request_booking.php:140
+
