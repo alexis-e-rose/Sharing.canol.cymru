@@ -22,7 +22,7 @@ if ($_SESSION['member_ID']>0) {
     $result6 = $mysqli -> query($query6);
     $member = $result6 -> fetch_assoc();
 } else {
-    end;
+    exit;
 }
 
 // this page is for callers to manage their account

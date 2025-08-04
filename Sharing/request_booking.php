@@ -23,7 +23,7 @@ include("includes/booking_functions.inc");
 include("includes/notification_functions.inc");
 include("includes/header.inc"); 
 
-$thing_ID = $_GET["thing_id"] ? intval($_GET["thing_id"]) : 0;
+$thing_ID = isset($_GET["thing_id"]) ? intval($_GET["thing_id"]) : 0;
 $error_message = '';
 $success_message = '';
 
@@ -48,7 +48,7 @@ if ($thing_ID > 0) {
 }
 
 // Process booking request
-if ($_POST["submit_booking"] && !$error_message) {
+if (isset($_POST["submit_booking"]) && $_POST["submit_booking"] && !$error_message) {
     $start_date = $_POST["start_date"];
     $end_date = $_POST["end_date"];
     $notes = $_POST["notes"];

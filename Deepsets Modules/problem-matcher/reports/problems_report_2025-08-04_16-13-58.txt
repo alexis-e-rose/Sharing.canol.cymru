@@ -1,0 +1,667 @@
+=== ENHANCED PROBLEM MATCHER REPORT ===
+Generated: 2025-08-04 15:13:58
+Total Issues: 206
+Defined Functions: 40
+
+## SECURITY ISSUES (202)
+account.php:31 - Unescaped user input detected
+  Code: if (isset($_POST["makegroup"]) && $_POST["makegroup"]=="Create group" ) {
+
+account.php:33 - Unescaped user input detected
+  Code: $query = 'insert into communities ( member_ID , community_name , password ) values ( '.$_SESSION['member_ID'].' , '.qq($_POST["groupname"]).' , '.qq($_POST["grouppassword"]).' )';
+
+account.php:37 - Unescaped user input detected
+  Code: $query = 'select * from communities where community_name = '.qq($_POST["groupname"]).' and member_ID = '.$_SESSION["member_ID"].'';
+
+account.php:48 - Unescaped user input detected
+  Code: if (isset($_POST["deletegroup"]) && $_POST["deletegroup"]>0 ) {
+
+account.php:50 - Unescaped user input detected
+  Code: echo $query = 'delete from communities where community_ID = '.$_POST["deletegroup"];
+
+account.php:65 - Unescaped user input detected
+  Code: if ($_POST['submitcount']=="Submit" ) {
+
+account.php:67 - Unescaped user input detected
+  Code: for ($i=1; $i<=$_POST['rowcount']; $i++) {
+
+account.php:70 - Unescaped user input detected
+  Code: if ( isset($_POST[$varname]) ) {
+
+account.php:72 - Unescaped user input detected
+  Code: $query = 'select * from member_communities where member_ID = '.$_SESSION['member_ID'].' and community_ID = '.$_POST[$varname];
+
+account.php:79 - Unescaped user input detected
+  Code: $query = "insert into member_communities ( member_ID, community_ID ) values ( '".$_SESSION['member_ID']."' , '".$_POST[$varname]."' )";
+
+account.php:83 - Unescaped user input detected
+  Code: $query = "delete from member_communities where member_ID = ".$_SESSION['member_ID']." and  community_ID = ".$_POST[$varnameb];
+
+account.php:91 - Unescaped user input detected
+  Code: if ($_POST['submit2'] == "Re-save") {
+
+account.php:95 - Unescaped user input detected
+  Code: $fname = secure_input($_POST['fname'], 'string');
+
+account.php:96 - Unescaped user input detected
+  Code: $lname = secure_input($_POST['lname'], 'string');
+
+account.php:97 - Unescaped user input detected
+  Code: $email = secure_input($_POST['email'], 'email');
+
+account.php:98 - Unescaped user input detected
+  Code: $password = secure_input($_POST['pagespass'], 'string');
+
+account.php:98 - Plain text password storage
+  Code: $password = secure_input($_POST['pagespass'], 'string');
+
+account.php:99 - Unescaped user input detected
+  Code: $pcode = secure_input($_POST['pcode'], 'string');
+
+add_listing.php:26 - Unescaped user input detected
+  Code: //echo 'thing_ID is '.$_POST["thing_ID"];
+
+add_listing.php:27 - Unescaped user input detected
+  Code: $this_thing_ID = isset($_POST["thing_ID"]) ? $_POST["thing_ID"] : 0;
+
+add_listing.php:30 - Unescaped user input detected
+  Code: if (isset($_POST["checkword"]) && $_POST["checkword"] == "check") {
+
+add_listing.php:31 - Unescaped user input detected
+  Code: if ( $_POST["thing_ID"] == 0) {
+
+add_listing.php:34 - Unescaped user input detected
+  Code: qq($_POST["thing_title"]).", ".
+
+add_listing.php:35 - Unescaped user input detected
+  Code: qq($_POST["thing_price"]).", ".
+
+add_listing.php:36 - Unescaped user input detected
+  Code: qq($_POST["thing_type"]).", ".
+
+add_listing.php:37 - Unescaped user input detected
+  Code: qq($_POST["thing_ratio"]).", ".
+
+add_listing.php:38 - Unescaped user input detected
+  Code: qq($_POST["thing_description"]).", ".
+
+add_listing.php:40 - Unescaped user input detected
+  Code: qq($_POST["thing_image"])." )";
+
+add_listing.php:49 - Unescaped user input detected
+  Code: $this_thing_ID = $_POST["thing_ID"];
+
+add_listing.php:51 - Unescaped user input detected
+  Code: " thing_description = ".qq($_POST["thing_description"])." ,".
+
+add_listing.php:52 - Unescaped user input detected
+  Code: " thing_price       = ".qq($_POST["thing_price"])." ,".
+
+add_listing.php:53 - Unescaped user input detected
+  Code: " thing_type        = ".qq($_POST["thing_type"])." ,".
+
+add_listing.php:54 - Unescaped user input detected
+  Code: " thing_ratio       = ".qq($_POST["thing_ratio"])." ,".
+
+add_listing.php:55 - Unescaped user input detected
+  Code: " thing_title       = ".qq($_POST["thing_title"])." ".
+
+add_listing.php:64 - Unescaped user input detected
+  Code: //echo '<br>num comms = '.$_POST["num_comms"];
+
+add_listing.php:71 - Unescaped user input detected
+  Code: for ( $i=1; $i<=$_POST["num_comms"]; $i++) {
+
+add_listing.php:73 - Unescaped user input detected
+  Code: $temp2 = $_POST[$temp3];
+
+add_listing.php:96 - Unescaped user input detected
+  Code: if (isset($_POST["edit"])) {
+
+add_listing.php:107 - Unescaped user input detected
+  Code: } elseif ( isset($_POST["item_delete"]) ) {
+
+create_private.php:56 - Unescaped user input detected
+  Code: //echo 'thing_ID is '.$_POST["thing_ID"];
+
+create_private.php:57 - Unescaped user input detected
+  Code: $this_thing_ID = $_POST["thing_ID"];
+
+create_private.php:62 - Unescaped user input detected
+  Code: if ($_POST["checkword"] == "check") {
+
+create_private.php:63 - Unescaped user input detected
+  Code: if ( $_POST["thing_ID"] == 0) {
+
+create_private.php:66 - Unescaped user input detected
+  Code: qq($_POST["thing_title"]).", ".
+
+create_private.php:67 - Unescaped user input detected
+  Code: qq($_POST["thing_price"]).", ".
+
+create_private.php:68 - Unescaped user input detected
+  Code: qq($_POST["thing_type"]).", ".
+
+create_private.php:69 - Unescaped user input detected
+  Code: qq($_POST["thing_ratio"]).", ".
+
+create_private.php:70 - Unescaped user input detected
+  Code: qq($_POST["thing_description"]).", ".
+
+create_private.php:72 - Unescaped user input detected
+  Code: qq($_POST["thing_image"])." )";
+
+create_private.php:81 - Unescaped user input detected
+  Code: $this_thing_ID = $_POST["thing_ID"];
+
+create_private.php:83 - Unescaped user input detected
+  Code: " thing_description = ".qq($_POST["thing_description"])." ,".
+
+create_private.php:84 - Unescaped user input detected
+  Code: " thing_price       = ".qq($_POST["thing_price"])." ,".
+
+create_private.php:85 - Unescaped user input detected
+  Code: " thing_type        = ".qq($_POST["thing_type"])." ,".
+
+create_private.php:86 - Unescaped user input detected
+  Code: " thing_ratio       = ".qq($_POST["thing_ratio"])." ,".
+
+create_private.php:87 - Unescaped user input detected
+  Code: " thing_title       = ".qq($_POST["thing_title"])." ".
+
+index.php:14 - Unescaped user input detected
+  Code: if (isset($_POST["Login"]) && $_POST["Login"]=="Login"){ include("includes/login_process.inc");};
+
+index.php:15 - Unescaped user input detected
+  Code: if (isset($_GET['logout']) && $_GET['logout']==1)     { include("includes/logout_process.inc");}
+
+index.php:21 - Unescaped user input detected
+  Code: if (isset($_GET["showlogin"]) && $_GET["showlogin"]==1 )  { include("includes/login_form.inc");}
+
+joingroup.php:26 - Unescaped user input detected
+  Code: if (isset($_POST["joingroup"]) ) {
+
+joingroup.php:27 - Unescaped user input detected
+  Code: $query = 'select * from members where member_email = '.qq($_POST["groupemail"]);
+
+joingroup.php:36 - Unescaped user input detected
+  Code: $query = 'select * from communities where member_ID = '.$record["member_ID"].' and password = '.qq($_POST["grouppassword"]);
+
+joingroup.php:36 - Plain text password storage
+  Code: $query = 'select * from communities where member_ID = '.$record["member_ID"].' and password = '.qq($_POST["grouppassword"]);
+
+my_bookings.php:18 - Unescaped user input detected
+  Code: if (isset($_POST["action"]) && isset($_POST["booking_id"]) && $_POST["action"] == "approve" && $_POST["booking_id"]) {
+
+my_bookings.php:19 - Unescaped user input detected
+  Code: $result = update_booking_status($_POST["booking_id"], 2, $_SESSION["member_ID"]);
+
+my_bookings.php:27 - Unescaped user input detected
+  Code: if (isset($_POST["action"]) && isset($_POST["booking_id"]) && $_POST["action"] == "decline" && $_POST["booking_id"]) {
+
+my_bookings.php:28 - Unescaped user input detected
+  Code: $result = update_booking_status($_POST["booking_id"], 5, $_SESSION["member_ID"]);
+
+my_bookings.php:36 - Unescaped user input detected
+  Code: if (isset($_POST["action"]) && isset($_POST["booking_id"]) && $_POST["action"] == "mark_returned" && $_POST["booking_id"]) {
+
+my_bookings.php:38 - Unescaped user input detected
+  Code: WHERE booking_ID = ".qq($_POST["booking_id"])."
+
+notifications.php:24 - Unescaped user input detected
+  Code: if (isset($_POST["mark_read"]) && $_POST["mark_read"] && isset($_POST["notification_id"])) {
+
+notifications.php:25 - Unescaped user input detected
+  Code: mark_notification_read($_POST["notification_id"], $_SESSION["member_ID"]);
+
+notifications.php:30 - Unescaped user input detected
+  Code: if (isset($_POST["mark_all_read"]) && $_POST["mark_all_read"]) {
+
+notifications.php:99 - Unescaped user input detected
+  Code: if (isset($_POST["update_preferences"]) && $_POST["update_preferences"]) {
+
+notifications.php:100 - Unescaped user input detected
+  Code: $email_notifications = isset($_POST["email_notifications"]) ? 1 : 0;
+
+notifications.php:101 - Unescaped user input detected
+  Code: $sms_notifications = isset($_POST["sms_notifications"]) ? 1 : 0;
+
+notifications.php:102 - Unescaped user input detected
+  Code: $phone_number = isset($_POST["phone_number"]) ? $_POST["phone_number"] : '';
+
+notifications.php:103 - Unescaped user input detected
+  Code: $notification_frequency = isset($_POST["notification_frequency"]) ? $_POST["notification_frequency"] : 'immediate';
+
+register.php:31 - Unescaped user input detected
+  Code: $pagespass = isset($_POST['pagespass']) ? $_POST['pagespass'] : '';
+
+register.php:32 - Unescaped user input detected
+  Code: //$member_email = $_POST['email'];
+
+register.php:37 - Unescaped user input detected
+  Code: if (isset($_POST['submitcount']) && $_POST['submitcount']=="Submit" ) {
+
+register.php:39 - Unescaped user input detected
+  Code: //echo '<BR>'.$_POST['submitcount'];
+
+register.php:40 - Unescaped user input detected
+  Code: //echo '<BR>'.$_POST['rowcount'];
+
+register.php:44 - Unescaped user input detected
+  Code: for ($i=1; $i<=$_POST['rowcount']; $i++) {
+
+register.php:46 - Unescaped user input detected
+  Code: $query = "insert into member_communities ( member_ID, community_ID ) values ( '".$_SESSION['member_ID']."' , '".$_POST[$varname]."' )";
+
+register.php:53 - Unescaped user input detected
+  Code: if (isset($_POST['submit2']) && $_POST['submit2'] == "Register") {
+
+register.php:56 - Unescaped user input detected
+  Code: $email = secure_input($_POST['email'], 'email');
+
+register.php:57 - Unescaped user input detected
+  Code: $fname = secure_input($_POST['fname'], 'string');
+
+register.php:58 - Unescaped user input detected
+  Code: $lname = secure_input($_POST['lname'], 'string');
+
+register.php:59 - Unescaped user input detected
+  Code: $pcode = secure_input($_POST['pcode'], 'string');
+
+register.php:60 - Unescaped user input detected
+  Code: $password = secure_input($_POST['pagespass'], 'string');
+
+register.php:60 - Plain text password storage
+  Code: $password = secure_input($_POST['pagespass'], 'string');
+
+register.php:107 - Unescaped user input detected
+  Code: $pcode5 = substr($_POST["pcode"],0,5)."*"; $pcode6 = substr($_POST["pcode"],0,6)."*"; $pcode7 = substr($_POST["pcode"],0,7)."*"; $pcode8 = substr($_POST["pcode"],0,8);
+
+request_booking.php:26 - Unescaped user input detected
+  Code: $thing_ID = isset($_GET["thing_id"]) ? intval($_GET["thing_id"]) : 0;
+
+request_booking.php:51 - Unescaped user input detected
+  Code: if (isset($_POST["submit_booking"]) && $_POST["submit_booking"] && !$error_message) {
+
+request_booking.php:52 - Unescaped user input detected
+  Code: $start_date = $_POST["start_date"];
+
+request_booking.php:53 - Unescaped user input detected
+  Code: $end_date = $_POST["end_date"];
+
+request_booking.php:54 - Unescaped user input detected
+  Code: $notes = $_POST["notes"];
+
+request_booking.php:111 - Unescaped user input detected
+  Code: echo cell2("Start Date:", '<input type="date" name="start_date" value="'.$_POST['start_date'].'" class="date-input" min="'.date('Y-m-d').'" required>');
+
+request_booking.php:112 - Unescaped user input detected
+  Code: echo cell2("End Date:", '<input type="date" name="end_date" value="'.$_POST['end_date'].'" class="date-input" min="'.date('Y-m-d').'" required>');
+
+request_booking.php:115 - Unescaped user input detected
+  Code: echo '<tr><td width="200">Special requests or notes:</td><td><textarea name="notes" class="notes-input" placeholder="Any special requests, pickup arrangements, etc.">'.$_POST['notes'].'</textarea></td></tr>';
+
+search.php:22 - Unescaped user input detected
+  Code: $keywords_value = isset($_POST["keywords"]) ? $_POST["keywords"] : '';
+
+search.php:25 - Unescaped user input detected
+  Code: $item_type = isset($_POST["item_type"]) ? $_POST["item_type"] : 1;
+
+search.php:28 - Unescaped user input detected
+  Code: } elseif ($_POST["item_type"]==2) {
+
+search.php:40 - Unescaped user input detected
+  Code: if (isset($_POST["item_ID"])) {
+
+search.php:42 - Unescaped user input detected
+  Code: $item_id = secure_input($_POST["item_ID"], 'int');
+
+search.php:67 - Unescaped user input detected
+  Code: if (isset($_POST["search"])) {
+
+search.php:69 - Unescaped user input detected
+  Code: if ( $_POST["item_type"]==1){
+
+search.php:71 - Unescaped user input detected
+  Code: } elseif ($_POST["item_type"]==2) {
+
+search.php:79 - Unescaped user input detected
+  Code: $keywords = secure_input($_POST["keywords"], 'string');
+
+search.php:96 - Unescaped user input detected
+  Code: $item_type = secure_input($_POST["item_type"], 'int');
+
+search.php:111 - Unescaped user input detected
+  Code: $button3 = '<input type="hidden" name="keywords" value="'.$_POST["keywords"] .'">';
+
+search.php:112 - Unescaped user input detected
+  Code: $button4 = '<input type="hidden" name="item_type" value="'.$_POST["item_type"] .'">';
+
+search.php:113 - Unescaped user input detected
+  Code: $button5 = '<input type="hidden" name="search" value="'.$_POST["search"] .'">';
+
+archives/Sharing/account.php:30 - Unescaped user input detected
+  Code: if (isset($_POST["makegroup"]) && $_POST["makegroup"]=="Create group" ) {
+
+archives/Sharing/account.php:32 - Unescaped user input detected
+  Code: $query = 'insert into communities ( member_ID , community_name , password ) values ( '.$_SESSION['member_ID'].' , '.qq($_POST["groupname"]).' , '.qq($_POST["grouppassword"]).' )';
+
+archives/Sharing/account.php:36 - Unescaped user input detected
+  Code: $query = 'select * from communities where community_name = '.qq($_POST["groupname"]).' and member_ID = '.$_SESSION["member_ID"].'';
+
+archives/Sharing/account.php:47 - Unescaped user input detected
+  Code: if (isset($_POST["deletegroup"]) && $_POST["deletegroup"]>0 ) {
+
+archives/Sharing/account.php:49 - Unescaped user input detected
+  Code: echo $query = 'delete from communities where community_ID = '.$_POST["deletegroup"];
+
+archives/Sharing/account.php:64 - Unescaped user input detected
+  Code: if ($_POST['submitcount']=="Submit" ) {
+
+archives/Sharing/account.php:66 - Unescaped user input detected
+  Code: for ($i=1; $i<=$_POST['rowcount']; $i++) {
+
+archives/Sharing/account.php:69 - Unescaped user input detected
+  Code: if ( isset($_POST[$varname]) ) {
+
+archives/Sharing/account.php:71 - Unescaped user input detected
+  Code: $query = 'select * from member_communities where member_ID = '.$_SESSION['member_ID'].' and community_ID = '.$_POST[$varname];
+
+archives/Sharing/account.php:78 - Unescaped user input detected
+  Code: $query = "insert into member_communities ( member_ID, community_ID ) values ( '".$_SESSION['member_ID']."' , '".$_POST[$varname]."' )";
+
+archives/Sharing/account.php:82 - Unescaped user input detected
+  Code: $query = "delete from member_communities where member_ID = ".$_SESSION['member_ID']." and  community_ID = ".$_POST[$varnameb];
+
+archives/Sharing/account.php:90 - Unescaped user input detected
+  Code: if ($_POST['submit2'] == "Re-save") {
+
+archives/Sharing/account.php:92 - Unescaped user input detected
+  Code: 'member_fname = '.qq($_POST['fname']).' , '.
+
+archives/Sharing/account.php:93 - Unescaped user input detected
+  Code: 'member_lname = '.qq($_POST['lname']).' , '.
+
+archives/Sharing/account.php:94 - Unescaped user input detected
+  Code: 'member_email = '.qq($_POST['email']).' , '.
+
+archives/Sharing/account.php:95 - Unescaped user input detected
+  Code: 'member_password = '.qq($_POST['pagespass']).' , '.
+
+archives/Sharing/account.php:95 - Plain text password storage
+  Code: 'member_password = '.qq($_POST['pagespass']).' , '.
+
+archives/Sharing/account.php:96 - Unescaped user input detected
+  Code: 'member_pcode = '.qq($_POST['pcode']).' '.
+
+archives/Sharing/account.php:101 - Unescaped user input detected
+  Code: $_SESSION['member_email'] = $_POST['email'];
+
+archives/Sharing/add_listing.php:20 - Unescaped user input detected
+  Code: //echo 'thing_ID is '.$_POST["thing_ID"];
+
+archives/Sharing/add_listing.php:21 - Unescaped user input detected
+  Code: $this_thing_ID = $_POST["thing_ID"];
+
+archives/Sharing/add_listing.php:24 - Unescaped user input detected
+  Code: if ($_POST["checkword"] == "check") {
+
+archives/Sharing/add_listing.php:25 - Unescaped user input detected
+  Code: if ( $_POST["thing_ID"] == 0) {
+
+archives/Sharing/add_listing.php:28 - Unescaped user input detected
+  Code: qq($_POST["thing_title"]).", ".
+
+archives/Sharing/add_listing.php:29 - Unescaped user input detected
+  Code: qq($_POST["thing_price"]).", ".
+
+archives/Sharing/add_listing.php:30 - Unescaped user input detected
+  Code: qq($_POST["thing_type"]).", ".
+
+archives/Sharing/add_listing.php:31 - Unescaped user input detected
+  Code: qq($_POST["thing_ratio"]).", ".
+
+archives/Sharing/add_listing.php:32 - Unescaped user input detected
+  Code: qq($_POST["thing_description"]).", ".
+
+archives/Sharing/add_listing.php:34 - Unescaped user input detected
+  Code: qq($_POST["thing_image"])." )";
+
+archives/Sharing/add_listing.php:43 - Unescaped user input detected
+  Code: $this_thing_ID = $_POST["thing_ID"];
+
+archives/Sharing/add_listing.php:45 - Unescaped user input detected
+  Code: " thing_description = ".qq($_POST["thing_description"])." ,".
+
+archives/Sharing/add_listing.php:46 - Unescaped user input detected
+  Code: " thing_price       = ".qq($_POST["thing_price"])." ,".
+
+archives/Sharing/add_listing.php:47 - Unescaped user input detected
+  Code: " thing_type        = ".qq($_POST["thing_type"])." ,".
+
+archives/Sharing/add_listing.php:48 - Unescaped user input detected
+  Code: " thing_ratio       = ".qq($_POST["thing_ratio"])." ,".
+
+archives/Sharing/add_listing.php:49 - Unescaped user input detected
+  Code: " thing_title       = ".qq($_POST["thing_title"])." ".
+
+archives/Sharing/add_listing.php:58 - Unescaped user input detected
+  Code: //echo '<br>num comms = '.$_POST["num_comms"];
+
+archives/Sharing/add_listing.php:65 - Unescaped user input detected
+  Code: for ( $i=1; $i<=$_POST["num_comms"]; $i++) {
+
+archives/Sharing/add_listing.php:67 - Unescaped user input detected
+  Code: $temp2 = $_POST[$temp3];
+
+archives/Sharing/add_listing.php:90 - Unescaped user input detected
+  Code: if (isset($_POST["edit"])) {
+
+archives/Sharing/add_listing.php:101 - Unescaped user input detected
+  Code: } elseif ( isset($_POST["item_delete"]) ) {
+
+archives/Sharing/create_private.php:56 - Unescaped user input detected
+  Code: //echo 'thing_ID is '.$_POST["thing_ID"];
+
+archives/Sharing/create_private.php:57 - Unescaped user input detected
+  Code: $this_thing_ID = $_POST["thing_ID"];
+
+archives/Sharing/create_private.php:62 - Unescaped user input detected
+  Code: if ($_POST["checkword"] == "check") {
+
+archives/Sharing/create_private.php:63 - Unescaped user input detected
+  Code: if ( $_POST["thing_ID"] == 0) {
+
+archives/Sharing/create_private.php:66 - Unescaped user input detected
+  Code: qq($_POST["thing_title"]).", ".
+
+archives/Sharing/create_private.php:67 - Unescaped user input detected
+  Code: qq($_POST["thing_price"]).", ".
+
+archives/Sharing/create_private.php:68 - Unescaped user input detected
+  Code: qq($_POST["thing_type"]).", ".
+
+archives/Sharing/create_private.php:69 - Unescaped user input detected
+  Code: qq($_POST["thing_ratio"]).", ".
+
+archives/Sharing/create_private.php:70 - Unescaped user input detected
+  Code: qq($_POST["thing_description"]).", ".
+
+archives/Sharing/create_private.php:72 - Unescaped user input detected
+  Code: qq($_POST["thing_image"])." )";
+
+archives/Sharing/create_private.php:81 - Unescaped user input detected
+  Code: $this_thing_ID = $_POST["thing_ID"];
+
+archives/Sharing/create_private.php:83 - Unescaped user input detected
+  Code: " thing_description = ".qq($_POST["thing_description"])." ,".
+
+archives/Sharing/create_private.php:84 - Unescaped user input detected
+  Code: " thing_price       = ".qq($_POST["thing_price"])." ,".
+
+archives/Sharing/create_private.php:85 - Unescaped user input detected
+  Code: " thing_type        = ".qq($_POST["thing_type"])." ,".
+
+archives/Sharing/create_private.php:86 - Unescaped user input detected
+  Code: " thing_ratio       = ".qq($_POST["thing_ratio"])." ,".
+
+archives/Sharing/create_private.php:87 - Unescaped user input detected
+  Code: " thing_title       = ".qq($_POST["thing_title"])." ".
+
+archives/Sharing/index.php:14 - Unescaped user input detected
+  Code: if ($_POST["Login"]=="Login"){ include("includes/login_process.inc");};
+
+archives/Sharing/index.php:15 - Unescaped user input detected
+  Code: if ( $_GET['logout']==1)     { include("includes/logout_process.inc");}
+
+archives/Sharing/index.php:21 - Unescaped user input detected
+  Code: if ($_GET["showlogin"]==1 )  { include("includes/login_form.inc");}
+
+archives/Sharing/joingroup.php:26 - Unescaped user input detected
+  Code: if (isset($_POST["joingroup"]) ) {
+
+archives/Sharing/joingroup.php:27 - Unescaped user input detected
+  Code: $query = 'select * from members where member_email = '.qq($_POST["groupemail"]);
+
+archives/Sharing/joingroup.php:36 - Unescaped user input detected
+  Code: $query = 'select * from communities where member_ID = '.$record["member_ID"].' and password = '.qq($_POST["grouppassword"]);
+
+archives/Sharing/joingroup.php:36 - Plain text password storage
+  Code: $query = 'select * from communities where member_ID = '.$record["member_ID"].' and password = '.qq($_POST["grouppassword"]);
+
+archives/Sharing/register.php:30 - Unescaped user input detected
+  Code: $pagespass = $_POST['pagespass'];
+
+archives/Sharing/register.php:31 - Unescaped user input detected
+  Code: //$member_email = $_POST['email'];
+
+archives/Sharing/register.php:36 - Unescaped user input detected
+  Code: if ($_POST['submitcount']=="Submit" ) {
+
+archives/Sharing/register.php:38 - Unescaped user input detected
+  Code: //echo '<BR>'.$_POST['submitcount'];
+
+archives/Sharing/register.php:39 - Unescaped user input detected
+  Code: //echo '<BR>'.$_POST['rowcount'];
+
+archives/Sharing/register.php:43 - Unescaped user input detected
+  Code: for ($i=1; $i<=$_POST['rowcount']; $i++) {
+
+archives/Sharing/register.php:45 - Unescaped user input detected
+  Code: $query = "insert into member_communities ( member_ID, community_ID ) values ( '".$_SESSION['member_ID']."' , '".$_POST[$varname]."' )";
+
+archives/Sharing/register.php:51 - Unescaped user input detected
+  Code: if ($_POST['submit2'] == "Register") {
+
+archives/Sharing/register.php:55 - Unescaped user input detected
+  Code: $query5 = "select * from members where member_email = ".qq($_POST['email']);
+
+archives/Sharing/register.php:64 - Unescaped user input detected
+  Code: $temp2 = $_POST['pagespass'];
+
+archives/Sharing/register.php:65 - Unescaped user input detected
+  Code: $query = "INSERT INTO members (`member_fname`, `member_email`, `member_password`, `member_lname`, `member_pcode`) VALUES ('".$_POST['fname']."', '".$_POST['email']."', '".$temp2."', '".$_POST['lname']."', '".$_POST['pcode']."')";
+
+archives/Sharing/register.php:69 - Unescaped user input detected
+  Code: $_SESSION['member_email'] = $_POST['email'];
+
+archives/Sharing/register.php:72 - Unescaped user input detected
+  Code: $query3 = 'select * from members where member_email = "'.$_POST['email'].'"';
+
+archives/Sharing/register.php:77 - Unescaped user input detected
+  Code: $_SESSION['member_email'] = $_POST['email'];
+
+archives/Sharing/register.php:84 - Unescaped user input detected
+  Code: $pcode5 = substr($_POST["pcode"],0,5)."*"; $pcode6 = substr($_POST["pcode"],0,6)."*"; $pcode7 = substr($_POST["pcode"],0,7)."*"; $pcode8 = substr($_POST["pcode"],0,8);
+
+archives/Sharing/search.php:19 - Unescaped user input detected
+  Code: echo cell2("search keywords",'<input type="text" name="keywords" value="'.$_POST["keywords"].'">');
+
+archives/Sharing/search.php:21 - Unescaped user input detected
+  Code: if ( $_POST["item_type"]==1){
+
+archives/Sharing/search.php:23 - Unescaped user input detected
+  Code: } elseif ($_POST["item_type"]==2) {
+
+archives/Sharing/search.php:35 - Unescaped user input detected
+  Code: if (isset($_POST["item_ID"])) {
+
+archives/Sharing/search.php:37 - Unescaped user input detected
+  Code: $query = 'select * from things where thing_ID = '.qq($_POST["item_ID"]);
+
+archives/Sharing/search.php:54 - Unescaped user input detected
+  Code: if (isset($_POST["search"])) {
+
+archives/Sharing/search.php:56 - Unescaped user input detected
+  Code: if ( $_POST["item_type"]==1){
+
+archives/Sharing/search.php:58 - Unescaped user input detected
+  Code: } elseif ($_POST["item_type"]==2) {
+
+archives/Sharing/search.php:66 - Unescaped user input detected
+  Code: ' and member_communities.member_ID = '.$_SESSION["member_ID"].' and thing_title like "%'.$_POST["keywords"].'%" '.$temp_type;
+
+archives/Sharing/search.php:76 - Unescaped user input detected
+  Code: $button3 = '<input type="hidden" name="keywords" value="'.$_POST["keywords"] .'">';
+
+archives/Sharing/search.php:77 - Unescaped user input detected
+  Code: $button3 = '<input type="hidden" name="item_type" value="'.$_POST["item_type"] .'">';
+
+archives/Sharing/search.php:78 - Unescaped user input detected
+  Code: $button4 = '<input type="hidden" name="search" value="'.$_POST["search"] .'">';
+
+## UNDEFINED_FUNCTION ISSUES (4)
+notifications.php:141 - Undefined function 'Immediate'
+  Code: 'immediate' => 'Immediate (as they happen)',
+
+notifications.php:142 - Undefined function 'digest'
+  Code: 'daily' => 'Daily digest (once per day)',
+
+notifications.php:143 - Undefined function 'digest'
+  Code: 'weekly' => 'Weekly digest (once per week)'
+
+request_booking.php:160 - Undefined function 'toFixed'
+  Code: '<strong>Total Cost:</strong> £' + totalCost.toFixed(2) + ' (' + days + ' × £' + pricePerDay + ')';
+
+## DEFINED FUNCTIONS REGISTRY
+- calculateCost() in request_booking.php:140
+- qq() in includes/miscfunctions.inc:3
+- cell2() in includes/miscfunctions.inc:22
+- cell3() in includes/miscfunctions.inc:27
+- cell4() in includes/miscfunctions.inc:32
+- cell5() in includes/miscfunctions.inc:37
+- cell6() in includes/miscfunctions.inc:42
+- qecho() in includes/miscfunctions.inc:49
+- check_booking_availability() in includes/booking_functions.inc:11
+- get_booking_status_text() in includes/booking_functions.inc:28
+- get_booking_status_color() in includes/booking_functions.inc:40
+- create_booking_request() in includes/booking_functions.inc:52
+- update_booking_status() in includes/booking_functions.inc:86
+- get_member_bookings() in includes/booking_functions.inc:125
+- get_due_returns() in includes/booking_functions.inc:151
+- format_display_date() in includes/booking_functions.inc:177
+- calculate_loan_cost() in includes/booking_functions.inc:182
+- generate_availability_calendar() in includes/booking_functions.inc:187
+- create_notification() in includes/notification_functions.inc:8
+- get_member_notifications() in includes/notification_functions.inc:27
+- mark_notification_read() in includes/notification_functions.inc:51
+- get_unread_notification_count() in includes/notification_functions.inc:63
+- process_pending_notifications() in includes/notification_functions.inc:77
+- send_email_notification() in includes/notification_functions.inc:135
+- get_notification_template() in includes/notification_functions.inc:163
+- replace_template_variables() in includes/notification_functions.inc:180
+- get_notification_type_info() in includes/notification_functions.inc:239
+- format_notification_row() in includes/notification_functions.inc:254
+- time_ago() in includes/notification_functions.inc:267
+- init_secure_connection() in includes/security_functions.inc:21
+- secure_query() in includes/security_functions.inc:52
+- qq_secure() in includes/security_functions.inc:94
+- secure_password_hash() in includes/security_functions.inc:111
+- secure_password_verify() in includes/security_functions.inc:121
+- is_password_hashed() in includes/security_functions.inc:130
+- secure_authenticate_user() in includes/security_functions.inc:145
+- secure_register_user() in includes/security_functions.inc:179
+- secure_input() in includes/security_functions.inc:205
+- convert_legacy_query() in includes/security_functions.inc:228
+- security_log() in includes/security_functions.inc:247
+

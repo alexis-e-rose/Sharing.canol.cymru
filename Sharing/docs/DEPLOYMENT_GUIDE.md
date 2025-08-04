@@ -17,6 +17,72 @@ cp -r Sharing/ Sharing_backup_$(date +%Y%m%d)/
 - Verify all existing functionality still works
 - Test new features with sample data
 
+## 🚀 Development Server Setup
+
+### **CRITICAL: Development Server Configuration**
+
+**Problem Analysis**: The development server startup was problematic due to:
+1. **Directory Structure Confusion**: PHP files are in `Sharing/` subdirectory, not project root
+2. **Server Root Issues**: Server was starting from wrong directory
+3. **Document Root Specification**: Missing explicit document root specification
+4. **Port Conflicts**: Multiple server instances causing conflicts
+
+**✅ Successful Method**:
+```bash
+# 1. Navigate to the correct directory (where PHP files are located)
+cd /home/alexisrose/Documents/Repos/Sharing.canol.cymru/Sharing
+
+# 2. Kill any existing PHP servers to avoid conflicts
+pkill -f "php -S"
+
+# 3. Start server with explicit document root and full path
+php -S localhost:8000 -t /home/alexisrose/Documents/Repos/Sharing.canol.cymru/Sharing
+
+# 4. Verify server is running
+curl http://localhost:8000/
+# Expected output: "Welcome to Sharing.Canol.Cymru"
+```
+
+**Alternative Methods (if above doesn't work)**:
+```bash
+# Method 2: Using relative path from project root
+cd /home/alexisrose/Documents/Repos/Sharing.canol.cymru
+php -S localhost:8000 -t Sharing/
+
+# Method 3: Using 127.0.0.1 instead of localhost
+cd Sharing/
+php -S 127.0.0.1:8000
+
+# Method 4: With display errors for debugging
+cd Sharing/
+php -S localhost:8000 -d display_errors=1
+```
+
+**Troubleshooting Steps**:
+1. **Check if server is running**: `ps aux | grep "php -S"`
+2. **Check port availability**: `netstat -tlnp | grep 8000`
+3. **Test connectivity**: `curl -I http://localhost:8000/`
+4. **Check directory structure**: `ls -la index.php`
+5. **Kill conflicting processes**: `pkill -f "php -S"`
+
+**Common Issues and Solutions**:
+- **404 Errors**: Server not running from correct directory
+- **Connection Refused**: Port 8000 already in use
+- **Permission Denied**: File permissions issues
+- **PHP Errors**: Missing includes or database connection
+
+**Verification Commands**:
+```bash
+# Test homepage
+curl http://localhost:8000/
+
+# Test specific page
+curl http://localhost:8000/search.php
+
+# Check server logs (if running in foreground)
+# Look for PHP errors and warnings
+```
+
 ## 🚀 Deployment Steps
 
 ### Step 1: Database Schema Updates

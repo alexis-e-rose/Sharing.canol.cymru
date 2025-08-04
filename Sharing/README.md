@@ -2,6 +2,28 @@
 
 A community-driven platform for sharing, lending, and trading items within local communities across Wales. This project facilitates sustainable living through peer-to-peer item sharing, local marketplaces, and community building.
 
+## 🚀 **Quick Start for New Users**
+
+### **One-Command Setup** ⚡
+```bash
+# Clone the repository and navigate to the application
+git clone https://github.com/your-username/Sharing.canol.cymru.git
+cd Sharing.canol.cymru/Sharing
+
+# Run the automated setup script
+./setup.sh
+```
+
+This script will:
+- ✅ Check all prerequisites (PHP, MySQL)
+- ✅ Create and configure the database
+- ✅ Import the schema and data
+- ✅ Set proper file permissions
+- ✅ Start the development server
+- ✅ Test that everything is working
+
+### **Manual Setup** (Alternative)
+
 ## 🏗️ **Project Structure**
 
 ```
@@ -48,38 +70,55 @@ Sharing/
     └── monitor_localhost.sh # Continuous monitoring
 ```
 
-## 🚀 **Quick Start**
+## 🧪 **Testing the Application**
 
-### **Prerequisites**
-- PHP 7.4+ with MySQL support
-- MySQL/MariaDB database
-- Web server (Apache/Nginx)
-
-### **Installation**
-1. **Database Setup**
-   ```bash
-   cd Sharing/database
-   mysql -u your_user -p your_database < sharingcanol_stuff.sql
-   mysql -u your_user -p your_database < schema_updates_fixed.sql
-   ```
-
-2. **Configuration**
-   - Update database credentials in `includes/connect.inc`
-   - Configure web server to serve from `Sharing/` directory
-
-3. **Cron Setup** (for notifications)
-   ```bash
-   cd Sharing
-   ./setup_cron.sh
-   ```
-
-### **Testing**
+### **Primary Testing Method: Agentic Browser Testing**
 ```bash
-cd Sharing/tests
-./test_localhost.sh    # Basic functionality test
-./test_workflow.sh     # Complete workflow test
-./monitor_localhost.sh # Continuous monitoring
+cd tests
+./test_browser_agentic.sh
 ```
+
+**What this tests:**
+- ✅ Complete user registration workflow
+- ✅ Login and authentication
+- ✅ Item search and browsing
+- ✅ Booking request system
+- ✅ Notification center
+- ✅ Session management
+- ✅ Form submissions
+- ✅ Performance (< 1 second response times)
+
+**Success Criteria:** 100% navigation success rate (17/17 tests)
+
+### **Additional Testing**
+```bash
+# Complete workflow testing
+./test_workflow.sh
+
+# Continuous monitoring
+./monitor_localhost.sh
+```
+
+## 🔧 **Development Tools**
+
+### **Security Analysis (DPM)**
+```bash
+# Run from project root
+cd ..
+"Deepsets Modules/problem-matcher/analyze-code"
+```
+
+**Current Status:** 
+- ✅ 40 defined functions in codebase
+- ⚠️ 202 legacy security issues (maintained per user priority)
+- ✅ No new vulnerabilities in Phase 2
+
+### **RAD Protocol Integration**
+This project follows the Rapid Agentic Development protocol:
+1. **PRE-TASK**: Check documentation, validate requirements
+2. **IMPLEMENT**: Execute with speed, test incrementally
+3. **TRIPLE-CHECK**: Run automated tests, verify functionality
+4. **POST-TASK**: Update documentation, archive completed work
 
 ## 🎯 **Current Status**
 
@@ -97,21 +136,6 @@ cd Sharing/tests
 - ✅ Booking approval workflow
 - ✅ Automated notification processing
 - ✅ Enhanced search with booking integration
-
-## 🔧 **Development Workflow**
-
-This project follows the **Rapid Agentic Development (RAD)** protocol:
-
-1. **PRE-TASK**: Check documentation, validate requirements
-2. **IMPLEMENT**: Execute with speed, test incrementally
-3. **TRIPLE-CHECK**: Run automated tests, verify functionality
-4. **POST-TASK**: Update documentation, archive completed work
-
-### **Testing Integration**
-All development should include automated testing:
-- Basic endpoint testing for all changes
-- Workflow testing for feature additions
-- Continuous monitoring for production stability
 
 ## 📊 **Security Status**
 

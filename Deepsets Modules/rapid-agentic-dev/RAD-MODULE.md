@@ -41,9 +41,10 @@
 
 ### **3. TRIPLE-CHECK VERIFICATION** 🔒
 - **🔧 Test functionality directly** - Run code, test features, verify outputs
-- **🧪 Run automated tests** - Execute test suite from `Sharing/tests/`
-  - `./test_localhost.sh` - Basic endpoint testing
-  - `./test_workflow.sh` - Complete workflow testing
+- **🤖 Run agentic browser tests** - Execute comprehensive workflow testing
+  - `./test_browser_agentic.sh` - Real user workflow simulation (PRIMARY)
+  - `./test_enhanced.sh` - Enhanced feature testing with authentication
+  - `./test_localhost.sh` - Basic endpoint testing (quick checks)
   - `./monitor_localhost.sh` - Continuous monitoring (if needed)
 - **🔍 Check for hallucinations** - Validate all references, imports, and dependencies exist
 - **⚙️ Verify wiring** - Ensure all components connect properly
@@ -104,6 +105,17 @@ diff previous_report.txt latest_report.txt
 - **Agent-friendly documentation** - Follow agent documentation guidelines
 - **RAD-compatible structure** - Supports pre-task → implement → triple-check → post-task workflow
 
+### **Testing Framework Integration**
+- **Agentic Browser Testing** - Primary testing method for workflow validation
+  - `Sharing/tests/test_browser_agentic.sh` - Real user simulation
+  - `Sharing/tests/TEST-COMPARISON-REPORT.md` - Testing approach comparison
+  - `Sharing/tests/TEST-ANALYSIS-REPORT.md` - Detailed test analysis
+- **Enhanced Testing** - Secondary method for authentication/security
+  - `Sharing/tests/test_enhanced.sh` - Comprehensive feature testing
+  - `Sharing/tests/test_localhost.sh` - Quick connectivity checks
+- **Continuous Monitoring** - Ongoing validation
+  - `Sharing/tests/monitor_localhost.sh` - Real-time availability monitoring
+
 ### **Testing Protocols**
 ```bash
 # For PHP changes
@@ -112,16 +124,21 @@ php -l filename.php  # Syntax check
 # For script changes  
 bash -n script.sh    # Syntax check
 
-# For functionality testing
+# For comprehensive testing (RECOMMENDED)
 cd Sharing/tests
-./test_localhost.sh    # Basic endpoint testing
-./test_workflow.sh     # Complete workflow testing
+./test_browser_agentic.sh  # Real user workflow simulation (PRIMARY)
+./test_enhanced.sh         # Enhanced feature testing with authentication
 
-# For continuous monitoring
-./monitor_localhost.sh # Real-time availability monitoring
+# For quick checks
+./test_localhost.sh        # Basic endpoint testing
+./monitor_localhost.sh     # Real-time availability monitoring
 
 # For syntax validation
-bash -n test_*.sh      # Validate all test scripts
+bash -n test_*.sh          # Validate all test scripts
+
+# For detailed analysis
+cat TEST-COMPARISON-REPORT.md  # View testing approach comparison
+cat TEST-ANALYSIS-REPORT.md    # View detailed test analysis
 ```
 
 ---
@@ -139,7 +156,8 @@ bash -n test_*.sh      # Validate all test scripts
 ### **During Implementation:**
 - [ ] ⚡ Execute with speed and precision
 - [ ] 🔧 Test each component as built
-- [ ] 🧪 Run relevant tests after each change
+- [ ] 🤖 Run agentic browser tests after major changes
+- [ ] 🧪 Run enhanced tests for authentication/security
 - [ ] 💾 Save work frequently
 - [ ] 📝 Document changes inline
 - [ ] 📊 Update progress tracking in real-time
@@ -147,7 +165,8 @@ bash -n test_*.sh      # Validate all test scripts
 
 ### **After Implementation:**
 - [ ] 🔧 Test complete functionality
-- [ ] 🧪 Run comprehensive test suite (`Sharing/tests/`)
+- [ ] 🤖 Run agentic browser tests for workflow validation
+- [ ] 🧪 Run enhanced tests for authentication/security validation
 - [ ] 🔍 Verify no hallucinations (all refs exist)
 - [ ] ⚙️ Check all components wire together
 - [ ] 🎭 Run DPM if code was modified
@@ -189,5 +208,6 @@ bash -n test_*.sh      # Validate all test scripts
 - **Documentation Framework**: `Deepsets Modules/documentation-framework/` - Structured documentation templates and agent guidelines
 - **Problem Matcher (DPM)**: `Deepsets Modules/problem-matcher/` - Automated security and code analysis
 - **Agent Documentation Guide**: `Deepsets Modules/documentation-framework/guidelines/agent-documentation-guide.md` - Detailed agent documentation protocols
+- **Testing Framework**: `Sharing/tests/RAD-TESTING-INTEGRATION.md` - Comprehensive testing integration with agentic browser testing
 
-**RAD + Documentation Framework = Complete development workflow with organized, maintainable documentation that supports rapid iteration and knowledge sharing.** 
+**RAD + Documentation Framework + Testing Framework = Complete development workflow with organized, maintainable documentation and comprehensive testing that supports rapid iteration and knowledge sharing.** 

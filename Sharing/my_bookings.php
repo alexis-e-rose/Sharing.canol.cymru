@@ -47,7 +47,7 @@ echo '<h2>My Bookings</h2>';
 
 // Get bookings as requester
 echo '<h3>Items I\'ve Requested to Borrow</h3>';
-$my_requests = get_member_bookings($_SESSION["member_ID"], false);
+$my_requests = get_member_bookings(isset($_SESSION["member_ID"]) ? $_SESSION["member_ID"] : 0, false);
 
 if (empty($my_requests)) {
     echo '<p>You haven\'t made any booking requests yet.</p>';
@@ -80,7 +80,7 @@ echo '<br><br>';
 
 // Get bookings as owner
 echo '<h3>Requests for My Items</h3>';
-$owner_requests = get_member_bookings($_SESSION["member_ID"], true);
+$owner_requests = get_member_bookings(isset($_SESSION["member_ID"]) ? $_SESSION["member_ID"] : 0, true);
 
 if (empty($owner_requests)) {
     echo '<p>No one has requested to borrow your items yet.</p>';

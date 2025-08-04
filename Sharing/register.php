@@ -28,13 +28,13 @@ if (isset($_SESSION['member_ID']) && $_SESSION['member_ID'] > 0 ) {
 // this page is for callers to enter a name and password
 
 
-$pagespass = $_POST['pagespass'];
+$pagespass = isset($_POST['pagespass']) ? $_POST['pagespass'] : '';
 //$member_email = $_POST['email'];
 
 
 // process this if the form has been submitted to save the selection of commiunities
 
-if ($_POST['submitcount']=="Submit" ) {
+if (isset($_POST['submitcount']) && $_POST['submitcount']=="Submit" ) {
     //echo 'processing the form';
     //echo '<BR>'.$_POST['submitcount'];
     //echo '<BR>'.$_POST['rowcount'];
@@ -50,7 +50,7 @@ if ($_POST['submitcount']=="Submit" ) {
 
 // process this if this page has been called by the form on itself
 // SECURE VERSION - Implements prepared statements and password hashing
-if ($_POST['submit2'] == "Register") {
+if (isset($_POST['submit2']) && $_POST['submit2'] == "Register") {
 
     // Secure input validation
     $email = secure_input($_POST['email'], 'email');

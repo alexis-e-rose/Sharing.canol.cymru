@@ -21,13 +21,13 @@ include("includes/notification_functions.inc");
 include("includes/header.inc"); 
 
 // Handle mark as read
-if ($_POST["mark_read"] && $_POST["notification_id"]) {
+if (isset($_POST["mark_read"]) && $_POST["mark_read"] && isset($_POST["notification_id"])) {
     mark_notification_read($_POST["notification_id"], $_SESSION["member_ID"]);
     echo '<p style="color: green;">Notification marked as read.</p>';
 }
 
 // Handle mark all as read
-if ($_POST["mark_all_read"]) {
+if (isset($_POST["mark_all_read"]) && $_POST["mark_all_read"]) {
     $query = "UPDATE notifications 
               SET notification_status = 4, notification_read = NOW() 
               WHERE member_ID = ".qq($_SESSION["member_ID"])." 
@@ -39,8 +39,8 @@ if ($_POST["mark_all_read"]) {
 echo '<h2>My Notifications</h2>';
 
 // Get notification counts
-$unread_count = get_unread_notification_count($_SESSION["member_ID"]);
-$all_notifications = get_member_notifications($_SESSION["member_ID"], 20, false);
+$unread_count = get_unread_notification_count(isset($_SESSION["member_ID"]) ? $_SESSION["member_ID"] : 0);
+$all_notifications = get_member_notifications(isset($_SESSION["member_ID"]) ? $_SESSION["member_ID"] : 0, 20, false);
 
 echo '<p>';
 if ($unread_count > 0) {
@@ -91,7 +91,7 @@ echo '<h3>Notification Preferences</h3>';
 
 // Get current preferences
 $query = "SELECT member_email_notifications, member_sms_notifications, member_phone_number, member_notification_frequency 
-          FROM members WHERE member_ID = ".qq($_SESSION["member_ID"]);
+          FROM members WHERE member_ID = ".qq(isset($_SESSION["member_ID"]) ? $_SESSION["member_ID"] : 0);
 $result = $mysqli->query($query);
 $prefs = $result->fetch_assoc();
 
@@ -107,7 +107,7 @@ $prefs = $result->fetch_assoc();
                   member_sms_notifications = ".qq($sms_notifications).",
                   member_phone_number = ".qq($phone_number).",
                   member_notification_frequency = ".qq($notification_frequency)."
-              WHERE member_ID = ".qq($_SESSION["member_ID"]);
+              WHERE member_ID = ".qq(isset($_SESSION["member_ID"]) ? $_SESSION["member_ID"] : 0);
     
     if ($mysqli->query($query)) {
         echo '<p style="color: green;">Preferences updated successfully!</p>';

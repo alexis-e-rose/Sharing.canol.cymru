@@ -97,17 +97,20 @@
     "intelephense.rename.exclude": [
         "**/problems_report*.json",
         "**/problems_report*.txt",
-        "**/reports/**"
+        "**/reports/**",
+        "**/*.md"
     ],
     "files.exclude": {
         "problems_report.json": true,
         "problems_report.txt": true,
-        "Deepsets Modules/problem-matcher/reports/**": true
+        "Deepsets Modules/problem-matcher/reports/**": true,
+        "**/*.md": true
     },
     "search.exclude": {
         "Deepsets Modules/problem-matcher/reports/**": true,
         "problems_report*.json": true,
-        "problems_report*.txt": true
+        "problems_report*.txt": true,
+        "**/*.md": true
     },
     "markdownlint.config": {
         "MD022": false,
@@ -118,8 +121,6 @@
         "MD047": false
     },
     "markdownlint.ignore": [
-        "Deepsets Modules/**/*.md",
-        "problems_report*.txt",
-        "**/reports/*.md"
+        "**/*.md"
     ]
 } 

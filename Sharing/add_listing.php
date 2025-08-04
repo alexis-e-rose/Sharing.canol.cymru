@@ -14,6 +14,12 @@ include("includes/connect.inc");
 include("includes/miscfunctions.inc");
 include("includes/header.inc"); 
 
+// Check if user is logged in
+if (!isset($_SESSION['member_ID']) || $_SESSION['member_ID'] <= 0) {
+    echo '<p>Please log in to add listings.</p>';
+    exit;
+}
+
 
 // this page is for a member to load an item for sale/loan
 
@@ -78,7 +84,7 @@ for ( $i=1; $i<=$_POST["num_comms"]; $i++) {
         $result = $mysqli -> query($query);
         $record = $result -> fetch_assoc() ;
                 
-        $querycom = "SELECT * FROM thing_community WHERE 1 thing_ID = ".$this_thing_ID;
+        $querycom = "SELECT * FROM thing_community WHERE thing_ID = ".$this_thing_ID;
         $resultcom = $mysqli -> query($query);
         $recordcom = $result -> fetch_assoc() ;
         
@@ -191,7 +197,7 @@ for ( $i=1; $i<=$_POST["num_comms"]; $i++) {
         //echo cell2("Make visible to these communities","");
         // now work out which communityies to make it visible in 
         // first find out which communities the member belongs to
-        $query = "select * from member_communities where member_ID = ".$_SESSION["member_ID"];
+        $query = "select * from member_communities where member_ID = ".qq($_SESSION["member_ID"]);
         $result = $mysqli -> query($query);
         $row_cnt =mysqli_num_rows($result);
         $i=0;

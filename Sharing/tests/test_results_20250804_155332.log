@@ -1,0 +1,118 @@
+🧪 Starting automated tests for localhost:8000
+===============================================
+
+[0;34mTesting: Homepage[0m
+URL: http://localhost:8000/
+HTTP Code: 200
+Response Time: 0.000848ss
+[0;32m✅ PASS: Homepage[0m
+
+[0;34mTesting: Search Page[0m
+URL: http://localhost:8000/search.php
+HTTP Code: 200
+Response Time: 0.001117ss
+[0;32m✅ PASS: Search Page[0m
+
+[0;34mTesting: Add Listing[0m
+URL: http://localhost:8000/add_listing.php
+HTTP Code: 500
+Response Time: 0.001095ss
+[0;31m❌ FAIL: Add Listing[0m
+Expected pattern: Add
+Response preview: <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+
+</head>
+
+
+<body>
+    
+<br><table><tr><td>Menu<br><a href="index.php?showlogin=1">     Login</a><br><a href="register.php">              Regist...
+
+[0;34mTesting: My Bookings[0m
+URL: http://localhost:8000/my_bookings.php
+HTTP Code: 200
+Response Time: 0.001479ss
+[0;32m✅ PASS: My Bookings[0m
+
+[0;34mTesting: Notifications[0m
+URL: http://localhost:8000/notifications.php
+HTTP Code: 200
+Response Time: 0.001300ss
+[0;32m✅ PASS: Notifications[0m
+
+[0;34mTesting: Account[0m
+URL: http://localhost:8000/account.php
+HTTP Code: 500
+Response Time: 0.000919ss
+[0;31m❌ FAIL: Account[0m
+Expected pattern: account
+Response preview: <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+
+</head>
+
+
+<body></body>
+    
+ <br><table><tr><td>Menu<br><a href="index.php?showlogin=1">     Login</a><br><a href="register.php">            ...
+
+[0;34mTesting: Register[0m
+URL: http://localhost:8000/register.php
+HTTP Code: 200
+Response Time: 0.001378ss
+[0;32m✅ PASS: Register[0m
+
+[0;34mTesting: Search with Query[0m
+URL: http://localhost:8000/search.php?q=hammer
+HTTP Code: 200
+Response Time: 0.000942ss
+[0;31m❌ FAIL: Search with Query[0m
+Expected pattern: hammer
+Response preview: <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Search Items - Sharing Canol Cymru</title>
+</head>
+
+
+<body>
+    
+   <br><table><tr><td>Menu<br><a href="index.php?showlogin=1">     Lo...
+
+[0;34mTesting: Search with Category[0m
+URL: http://localhost:8000/search.php?category=tools
+HTTP Code: 200
+Response Time: 0.000978ss
+[0;31m❌ FAIL: Search with Category[0m
+Expected pattern: tools
+Response preview: <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Search Items - Sharing Canol Cymru</title>
+</head>
+
+
+<body>
+    
+   <br><table><tr><td>Menu<br><a href="index.php?showlogin=1">     Lo...
+
+[0;34mTesting POST endpoints...[0m
+Testing login form...
+[0;32m✅ PASS: Login form[0m
+Testing registration form...
+[0;32m✅ PASS: Registration form[0m
+
+[0;34m===============================================[0m
+[0;34mTest Summary:[0m
+[0;32m✅ Tests Passed: 7[0m
+[0;31m❌ Tests Failed: 4[0m
+[0;34m📊 Total Tests: 11[0m
+[0;34m📝 Log saved to: test_results_20250804_155332.log[0m
+[0;31m⚠️  Some tests failed. Check the log for details.[0m

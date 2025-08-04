@@ -1,0 +1,88 @@
+🧪 Starting automated tests for localhost:8000
+===============================================
+
+[0;34mTesting: Homepage[0m
+URL: http://localhost:8000/
+HTTP Code: 000
+Response Time: 0.000208ss
+[0;31m❌ FAIL: Homepage[0m
+Expected pattern: Sharing
+Response preview: ...
+
+[0;34mTesting: Search Page[0m
+URL: http://localhost:8000/search.php
+HTTP Code: 000
+Response Time: 0.000209ss
+[0;31m❌ FAIL: Search Page[0m
+Expected pattern: search
+Response preview: ...
+
+[0;34mTesting: Add Listing[0m
+URL: http://localhost:8000/add_listing.php
+HTTP Code: 000
+Response Time: 0.000267ss
+[0;31m❌ FAIL: Add Listing[0m
+Expected pattern: Add
+Response preview: ...
+
+[0;34mTesting: My Bookings[0m
+URL: http://localhost:8000/my_bookings.php
+HTTP Code: 000
+Response Time: 0.000358ss
+[0;31m❌ FAIL: My Bookings[0m
+Expected pattern: booking
+Response preview: ...
+
+[0;34mTesting: Notifications[0m
+URL: http://localhost:8000/notifications.php
+HTTP Code: 000
+Response Time: 0.000321ss
+[0;31m❌ FAIL: Notifications[0m
+Expected pattern: notification
+Response preview: ...
+
+[0;34mTesting: Account[0m
+URL: http://localhost:8000/account.php
+HTTP Code: 000
+Response Time: 0.000300ss
+[0;31m❌ FAIL: Account[0m
+Expected pattern: account
+Response preview: ...
+
+[0;34mTesting: Register[0m
+URL: http://localhost:8000/register.php
+HTTP Code: 000
+Response Time: 0.000191ss
+[0;31m❌ FAIL: Register[0m
+Expected pattern: register
+Response preview: ...
+
+[0;34mTesting: Search with Query[0m
+URL: http://localhost:8000/search.php?q=hammer
+HTTP Code: 000
+Response Time: 0.000228ss
+[0;31m❌ FAIL: Search with Query[0m
+Expected pattern: hammer
+Response preview: ...
+
+[0;34mTesting: Search with Category[0m
+URL: http://localhost:8000/search.php?category=tools
+HTTP Code: 000
+Response Time: 0.000202ss
+[0;31m❌ FAIL: Search with Category[0m
+Expected pattern: tools
+Response preview: ...
+
+[0;34mTesting POST endpoints...[0m
+Testing login form...
+[0;31m❌ FAIL: Login form[0m
+Testing registration form...
+[0;31m❌ FAIL: Registration form[0m
+
+[0;34m===============================================[0m
+[0;34mTest Summary:[0m
+[0;32m✅ Tests Passed: 0[0m
+[0;31m❌ Tests Failed: 11[0m
+[0;34m📊 Total Tests: 11[0m
+[0;34m📝 Log saved to: test_results_20250804_155245.log[0m
+[0;31m⚠️  Some tests failed. Check the log for details.[0m
