@@ -15,6 +15,7 @@ include("includes/miscfunctions.inc");
 include("includes/security_functions.inc");
 include("includes/booking_functions.inc");
 include("includes/notification_functions.inc");
+include_once("includes/feature_flags.inc");
 include("includes/header.inc"); 
 
 // this page is for a member to search the database
@@ -39,11 +40,14 @@ if ( $item_type==1){
     echo "This is the detailed description:";
 if (isset($_POST["item_ID"])) {
     // SECURE VERSION - Prepared statements
-    $item_id = secure_input($_POST["item_ID"], 'int');
+    $item_id = isset($_POST["item_ID"]) ? intval($_POST["item_ID"]) : 0;
     
     if ($item_id) {
         $query = 'SELECT * FROM things WHERE thing_ID = ?';
-        $record = secure_query($query, [$item_id], 'one');
+        $stmt = $mysqli->prepare($query);
+        $stmt->bind_param('i', $item_id);
+        $stmt->execute();
+        $record = $stmt->get_result()->fetch_assoc();
     } else {
         $record = false;
     }
@@ -76,31 +80,43 @@ if (isset($_POST["search"])) {
 
 
     // SECURE VERSION - Prepared statements for search
-    $keywords = secure_input($_POST["keywords"], 'string');
-    $member_id = secure_input($_SESSION["member_ID"], 'int');
+    $keywords = isset($_POST["keywords"]) ? $_POST["keywords"] : '';
+    $member_id = isset($_SESSION["member_ID"]) ? intval($_SESSION["member_ID"]) : 0;
     
     // Build secure query with proper parameterization
+    // Gate visibility table by feature flag
+    $visibility_table = (isset($FEATURE_FLAGS) && isset($FEATURE_FLAGS['enhanced_visibility']) && $FEATURE_FLAGS['enhanced_visibility']) ? 'thing_visibility' : 'thing_community';
+
     $query = 'SELECT DISTINCT things.*, members.member_fname, members.member_lname 
-              FROM things, thing_community, member_communities, members 
-              WHERE things.thing_ID = thing_community.thing_ID 
-              AND member_communities.community_ID = thing_community.community_ID 
+              FROM things, ' . $visibility_table . ', member_communities, members 
+              WHERE things.thing_ID = ' . $visibility_table . '.thing_ID 
+              AND member_communities.community_ID = ' . $visibility_table . '.community_ID 
               AND things.thing_member_ID = members.member_ID
               AND member_communities.member_ID = ? 
               AND thing_title LIKE ?';
     
-    $params = [$member_id, "%$keywords%"];
+    $params = [$member_id, "%$keywords%"]; 
     
     // Add type filter if specified
     if ($temp_type) {
         $query .= ' AND thing_type = ?';
-        $item_type = secure_input($_POST["item_type"], 'int');
+        $item_type = intval($_POST["item_type"]);
         $params[] = $item_type;
     }
     
     $query .= ' ORDER BY things.thing_create_date DESC';
-    $results = secure_query($query, $params);
+    $stmt = $mysqli->prepare($query);
+    if ($temp_type) {
+        $stmt->bind_param('isi', $params[0], $params[1], $params[2]);
+    } else {
+        $stmt->bind_param('is', $params[0], $params[1]);
+    }
+    $stmt->execute();
+    $results = $stmt->get_result();
+    $records = [];
+    while ($row = $results->fetch_assoc()) { $records[] = $row; }
     $temp = 0;
-    foreach ($results as $record) {
+    foreach ($records as $record) {
         if ($record["thing_ID"]==$temp ) {
             // this line is a duplicate
         } else {
@@ -119,8 +135,12 @@ if (isset($_POST["search"])) {
                 // This is a loan item and not owned by current user - show booking button
                 $action_buttons = '<a href="request_booking.php?thing_id='.$record["thing_ID"].'" style="background-color: #008000; color: white; padding: 4px 8px; text-decoration: none; font-size: 12px;">📅 Book Item</a>';
             } elseif ($record["thing_type"] == 2) {
-                // This is a sale item
-                $action_buttons = '<span style="color: #0066cc; font-size: 12px;">💰 For Sale</span>';
+                // This is a sale item; gate sales flow behind feature flag
+                if (isset($FEATURE_FLAGS) && isset($FEATURE_FLAGS['sales_flow']) && $FEATURE_FLAGS['sales_flow']) {
+                    $action_buttons = '<a href="#" style="background-color: #0066cc; color: white; padding: 4px 8px; text-decoration: none; font-size: 12px; opacity: 0.85;">💰 Reserve</a>';
+                } else {
+                    $action_buttons = '<span style="color: #0066cc; font-size: 12px;">💰 For Sale</span>';
+                }
             } elseif ($record["thing_member_ID"] == $_SESSION["member_ID"]) {
                 // This is user's own item
                 $action_buttons = '<span style="color: #808080; font-size: 12px;">Your item</span>';

@@ -12,6 +12,7 @@
 $page = "add_listing";
 include("includes/connect.inc");
 include("includes/miscfunctions.inc");
+include_once("includes/feature_flags.inc");
 include("includes/header.inc"); 
 
 // Check if user is logged in
@@ -19,6 +20,10 @@ if (!isset($_SESSION['member_ID']) || $_SESSION['member_ID'] <= 0) {
     echo '<p>Please log in to add listings.</p>';
     exit;
 }
+
+// Feature-flagged visibility table
+$enhanced_visibility = (isset($FEATURE_FLAGS) && isset($FEATURE_FLAGS['enhanced_visibility']) && $FEATURE_FLAGS['enhanced_visibility']);
+$visibility_table = $enhanced_visibility ? 'thing_visibility' : 'thing_community';
 
 
 // this page is for a member to load an item for sale/loan
@@ -65,14 +70,14 @@ if (isset($_POST["checkword"]) && $_POST["checkword"] == "check") {
 
 
 
-        $query = 'delete from thing_community where thing_ID = '.$this_thing_ID;
+        $query = 'delete from '.$visibility_table.' where thing_ID = '.$this_thing_ID;
         $result = $mysqli -> query($query);
 
 for ( $i=1; $i<=$_POST["num_comms"]; $i++) {
         $temp3 = "comm".$i;
         $temp2 = $_POST[$temp3];
         if ($temp2>0 ) {
-            $query = 'INSERT INTO thing_community ( thing_ID , community_ID ) VALUES ('.$this_thing_ID.' , '.$temp2.' )';
+            $query = 'INSERT INTO '.$visibility_table.' ( thing_ID , community_ID ) VALUES ('.$this_thing_ID.' , '.$temp2.' )';
             $result = $mysqli -> query($query);
     
             //echo '<br>'.$query;
@@ -211,7 +216,7 @@ for ( $i=1; $i<=$_POST["num_comms"]; $i++) {
             
         $ch5 = "";    
         if ($this_thing_ID > 0 )    {
-           $querycom = "SELECT * FROM thing_community WHERE thing_ID = ".$this_thing_ID;
+           $querycom = "SELECT * FROM ".$visibility_table." WHERE thing_ID = ".$this_thing_ID;
             $resultcom = $mysqli -> query($querycom);
             while ( $recordcom = $resultcom -> fetch_assoc()  ) {
                 if ( $recordcom["community_ID"] == $record["community_ID"]) { $ch5 = " checked ";}

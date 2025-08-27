@@ -1,4 +1,5 @@
 <?php
+include_once(__DIR__ . '/feature_flags.inc');
 echo '<br><table><tr><td>Menu<br>';
 
 //echo '<a href="index.php">Home </a><br>';
