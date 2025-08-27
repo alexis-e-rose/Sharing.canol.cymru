@@ -45,6 +45,9 @@ cd database
 mysql -u testuser -p sharingcanol_stuff_dev < sharingcanol_stuff.sql
 mysql -u testuser -p sharingcanol_stuff_dev < schema_updates_fixed.sql
 
+# 2b. (Optional) Apply Phase 3 groundwork schema
+mysql -u testuser -p sharingcanol_stuff_dev < schema_updates_phase3.sql
+
 # 3. Return to Sharing directory
 cd ..
 ```
@@ -124,6 +127,21 @@ cd ..  # Go to project root
 "Deepsets Modules/problem-matcher/analyze-code"
 ```
 
+**Feature Flags (dev):**
+```php
+// Edit this file to toggle features during development:
+// File: Sharing/includes/feature_flags.inc
+$FEATURE_FLAGS = [
+  'sales_flow' => false,
+  'donation_ledger' => false,
+  'donation_statements' => false,
+  'community_freeze' => false,
+  'enhanced_visibility' => false,
+  'listing_enhancements' => false,
+];
+// Flags are loaded globally via includes/header.inc and includes/header2.inc
+```
+
 **Continuous Testing:**
 ```bash
 cd Sharing/tests
@@ -163,6 +181,9 @@ Sharing.canol.cymru/
 - ✅ **Database Schema**: All tables properly migrated with constraints
 - ✅ **Security Framework**: Enhanced security functions implemented
 - ✅ **Automated Testing**: Comprehensive test suite with monitoring
+
+### **In Progress**
+- 🛠️ **Phase 3 Groundwork**: Feature flags wired; dev DB updated with causes/visibility/sales/donations schema; UI gating active for enhanced visibility and sales flow (flags default-off)
 
 ### **Recent Accomplishments**
 - **Critical Hotfix Applied**: Resolved fatal database errors and runtime issues
@@ -216,6 +237,16 @@ Sharing.canol.cymru/
 - `booking_notifications` - Notification preferences
 - `notification_logs` - Email notification tracking
 
+### **Phase 3 Groundwork (feature-flagged)**
+- `community_causes` - Admin-defined donation causes per community
+- `thing_visibility` - Per-community item visibility mapping
+- `sale_reservations` - Reservations for sale items
+- `sales` - Sale confirmations and pricing
+- `donation_pledges` - Ledger entries for pledges
+- `donation_statements` - Threshold-based statements
+- `donation_statement_items` - Statement line items
+- `donation_payments` - Admin-recorded payments/reconciliation
+
 ## 📚 **Documentation**
 
 ### **Getting Started**
@@ -246,6 +277,7 @@ Sharing.canol.cymru/
 2. **Testing Integration**: Use agentic browser testing for all changes
 3. **Security First**: Regular DPM analysis before commits
 4. **Documentation**: Update docs with any significant changes
+5. **Feature Flags**: Toggle flags in `Sharing/includes/feature_flags.inc` to demo Phase 3 features (default-off)
 
 ## 🔗 **Related Modules**
 
